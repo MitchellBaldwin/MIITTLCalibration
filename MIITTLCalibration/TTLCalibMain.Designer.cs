@@ -81,12 +81,24 @@
             this.maxPipLabel = new System.Windows.Forms.Label();
             this.measuredPipLabel = new System.Windows.Forms.Label();
             this.minPipLabel = new System.Windows.Forms.Label();
+            this.selectLungModelTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.singleRadioButton = new System.Windows.Forms.RadioButton();
+            this.aiInfantRadioButton = new System.Windows.Forms.RadioButton();
+            this.aiAdultRadioButton = new System.Windows.Forms.RadioButton();
+            this.daLeftRadioButton = new System.Windows.Forms.RadioButton();
+            this.daRightRadioButton = new System.Windows.Forms.RadioButton();
+            this.serialNumberTextBox = new System.Windows.Forms.TextBox();
+            this.serialNumberLabel = new System.Windows.Forms.Label();
+            this.smPrefixDisplayLabel = new System.Windows.Forms.Label();
+            this.buildPVLFileButton = new System.Windows.Forms.Button();
+            this.showDataNormalizationFileButtonheckBox = new System.Windows.Forms.CheckBox();
+            this.selectLungModelTypeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // pBaroLabel
             // 
             this.pBaroLabel.ForeColor = System.Drawing.Color.White;
-            this.pBaroLabel.Location = new System.Drawing.Point(29, 16);
+            this.pBaroLabel.Location = new System.Drawing.Point(29, 41);
             this.pBaroLabel.Name = "pBaroLabel";
             this.pBaroLabel.Size = new System.Drawing.Size(260, 23);
             this.pBaroLabel.TabIndex = 0;
@@ -97,7 +109,7 @@
             // 
             this.pBaroUnitsLabel.AutoSize = true;
             this.pBaroUnitsLabel.ForeColor = System.Drawing.Color.White;
-            this.pBaroUnitsLabel.Location = new System.Drawing.Point(401, 16);
+            this.pBaroUnitsLabel.Location = new System.Drawing.Point(401, 41);
             this.pBaroUnitsLabel.Name = "pBaroUnitsLabel";
             this.pBaroUnitsLabel.Size = new System.Drawing.Size(56, 25);
             this.pBaroUnitsLabel.TabIndex = 1;
@@ -105,7 +117,7 @@
             // 
             // pBaroTextBox
             // 
-            this.pBaroTextBox.Location = new System.Drawing.Point(295, 13);
+            this.pBaroTextBox.Location = new System.Drawing.Point(295, 38);
             this.pBaroTextBox.Name = "pBaroTextBox";
             this.pBaroTextBox.Size = new System.Drawing.Size(100, 31);
             this.pBaroTextBox.TabIndex = 2;
@@ -114,7 +126,7 @@
             // 
             // gTempTextBox
             // 
-            this.gTempTextBox.Location = new System.Drawing.Point(295, 57);
+            this.gTempTextBox.Location = new System.Drawing.Point(295, 82);
             this.gTempTextBox.Name = "gTempTextBox";
             this.gTempTextBox.Size = new System.Drawing.Size(100, 31);
             this.gTempTextBox.TabIndex = 5;
@@ -125,7 +137,7 @@
             // 
             this.gTempUnitsLabel.AutoSize = true;
             this.gTempUnitsLabel.ForeColor = System.Drawing.Color.White;
-            this.gTempUnitsLabel.Location = new System.Drawing.Point(401, 60);
+            this.gTempUnitsLabel.Location = new System.Drawing.Point(401, 85);
             this.gTempUnitsLabel.Name = "gTempUnitsLabel";
             this.gTempUnitsLabel.Size = new System.Drawing.Size(35, 25);
             this.gTempUnitsLabel.TabIndex = 4;
@@ -134,7 +146,7 @@
             // gTempLabel
             // 
             this.gTempLabel.ForeColor = System.Drawing.Color.White;
-            this.gTempLabel.Location = new System.Drawing.Point(29, 60);
+            this.gTempLabel.Location = new System.Drawing.Point(29, 85);
             this.gTempLabel.Name = "gTempLabel";
             this.gTempLabel.Size = new System.Drawing.Size(260, 23);
             this.gTempLabel.TabIndex = 3;
@@ -143,7 +155,7 @@
             // 
             // rHTextBox
             // 
-            this.rHTextBox.Location = new System.Drawing.Point(295, 103);
+            this.rHTextBox.Location = new System.Drawing.Point(295, 128);
             this.rHTextBox.Name = "rHTextBox";
             this.rHTextBox.Size = new System.Drawing.Size(100, 31);
             this.rHTextBox.TabIndex = 8;
@@ -154,7 +166,7 @@
             // 
             this.rHUnitsLabel.AutoSize = true;
             this.rHUnitsLabel.ForeColor = System.Drawing.Color.White;
-            this.rHUnitsLabel.Location = new System.Drawing.Point(401, 106);
+            this.rHUnitsLabel.Location = new System.Drawing.Point(401, 131);
             this.rHUnitsLabel.Name = "rHUnitsLabel";
             this.rHUnitsLabel.Size = new System.Drawing.Size(31, 25);
             this.rHUnitsLabel.TabIndex = 7;
@@ -163,7 +175,7 @@
             // rHLabel
             // 
             this.rHLabel.ForeColor = System.Drawing.Color.White;
-            this.rHLabel.Location = new System.Drawing.Point(29, 106);
+            this.rHLabel.Location = new System.Drawing.Point(29, 131);
             this.rHLabel.Name = "rHLabel";
             this.rHLabel.Size = new System.Drawing.Size(260, 23);
             this.rHLabel.TabIndex = 6;
@@ -173,7 +185,7 @@
             // c10PipTextBox
             // 
             this.c10PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c10PipTextBox.Location = new System.Drawing.Point(295, 240);
+            this.c10PipTextBox.Location = new System.Drawing.Point(295, 277);
             this.c10PipTextBox.Name = "c10PipTextBox";
             this.c10PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c10PipTextBox.TabIndex = 11;
@@ -183,7 +195,7 @@
             // c10MaxPipDisplayLabel
             // 
             this.c10MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c10MaxPipDisplayLabel.Location = new System.Drawing.Point(290, 203);
+            this.c10MaxPipDisplayLabel.Location = new System.Drawing.Point(290, 240);
             this.c10MaxPipDisplayLabel.Name = "c10MaxPipDisplayLabel";
             this.c10MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c10MaxPipDisplayLabel.TabIndex = 9;
@@ -193,7 +205,7 @@
             // c10MinPipDisplayLabel
             // 
             this.c10MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c10MinPipDisplayLabel.Location = new System.Drawing.Point(290, 285);
+            this.c10MinPipDisplayLabel.Location = new System.Drawing.Point(290, 322);
             this.c10MinPipDisplayLabel.Name = "c10MinPipDisplayLabel";
             this.c10MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c10MinPipDisplayLabel.TabIndex = 12;
@@ -203,7 +215,7 @@
             // c10Label
             // 
             this.c10Label.ForeColor = System.Drawing.Color.White;
-            this.c10Label.Location = new System.Drawing.Point(290, 168);
+            this.c10Label.Location = new System.Drawing.Point(290, 205);
             this.c10Label.Name = "c10Label";
             this.c10Label.Size = new System.Drawing.Size(105, 25);
             this.c10Label.TabIndex = 13;
@@ -213,7 +225,7 @@
             // c20Label
             // 
             this.c20Label.ForeColor = System.Drawing.Color.White;
-            this.c20Label.Location = new System.Drawing.Point(396, 168);
+            this.c20Label.Location = new System.Drawing.Point(396, 205);
             this.c20Label.Name = "c20Label";
             this.c20Label.Size = new System.Drawing.Size(105, 25);
             this.c20Label.TabIndex = 17;
@@ -223,7 +235,7 @@
             // c20MinPipDisplayLabel
             // 
             this.c20MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c20MinPipDisplayLabel.Location = new System.Drawing.Point(396, 285);
+            this.c20MinPipDisplayLabel.Location = new System.Drawing.Point(396, 322);
             this.c20MinPipDisplayLabel.Name = "c20MinPipDisplayLabel";
             this.c20MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c20MinPipDisplayLabel.TabIndex = 16;
@@ -233,7 +245,7 @@
             // c20PipTextBox
             // 
             this.c20PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c20PipTextBox.Location = new System.Drawing.Point(401, 240);
+            this.c20PipTextBox.Location = new System.Drawing.Point(401, 277);
             this.c20PipTextBox.Name = "c20PipTextBox";
             this.c20PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c20PipTextBox.TabIndex = 15;
@@ -243,7 +255,7 @@
             // c20MaxPipDisplayLabel
             // 
             this.c20MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c20MaxPipDisplayLabel.Location = new System.Drawing.Point(396, 203);
+            this.c20MaxPipDisplayLabel.Location = new System.Drawing.Point(396, 240);
             this.c20MaxPipDisplayLabel.Name = "c20MaxPipDisplayLabel";
             this.c20MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c20MaxPipDisplayLabel.TabIndex = 14;
@@ -253,7 +265,7 @@
             // c30Label
             // 
             this.c30Label.ForeColor = System.Drawing.Color.White;
-            this.c30Label.Location = new System.Drawing.Point(502, 168);
+            this.c30Label.Location = new System.Drawing.Point(502, 205);
             this.c30Label.Name = "c30Label";
             this.c30Label.Size = new System.Drawing.Size(105, 25);
             this.c30Label.TabIndex = 21;
@@ -263,7 +275,7 @@
             // c30MinPipDisplayLabel
             // 
             this.c30MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c30MinPipDisplayLabel.Location = new System.Drawing.Point(502, 285);
+            this.c30MinPipDisplayLabel.Location = new System.Drawing.Point(502, 322);
             this.c30MinPipDisplayLabel.Name = "c30MinPipDisplayLabel";
             this.c30MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c30MinPipDisplayLabel.TabIndex = 20;
@@ -273,7 +285,7 @@
             // c30PipTestBox
             // 
             this.c30PipTestBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c30PipTestBox.Location = new System.Drawing.Point(507, 240);
+            this.c30PipTestBox.Location = new System.Drawing.Point(507, 277);
             this.c30PipTestBox.Name = "c30PipTestBox";
             this.c30PipTestBox.Size = new System.Drawing.Size(100, 31);
             this.c30PipTestBox.TabIndex = 19;
@@ -283,7 +295,7 @@
             // c30MaxPipDisplayLabel
             // 
             this.c30MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c30MaxPipDisplayLabel.Location = new System.Drawing.Point(502, 203);
+            this.c30MaxPipDisplayLabel.Location = new System.Drawing.Point(502, 240);
             this.c30MaxPipDisplayLabel.Name = "c30MaxPipDisplayLabel";
             this.c30MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c30MaxPipDisplayLabel.TabIndex = 18;
@@ -293,7 +305,7 @@
             // c40Label
             // 
             this.c40Label.ForeColor = System.Drawing.Color.White;
-            this.c40Label.Location = new System.Drawing.Point(608, 168);
+            this.c40Label.Location = new System.Drawing.Point(608, 205);
             this.c40Label.Name = "c40Label";
             this.c40Label.Size = new System.Drawing.Size(105, 25);
             this.c40Label.TabIndex = 25;
@@ -303,7 +315,7 @@
             // c40MinPipDisplayLabel
             // 
             this.c40MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c40MinPipDisplayLabel.Location = new System.Drawing.Point(608, 285);
+            this.c40MinPipDisplayLabel.Location = new System.Drawing.Point(608, 322);
             this.c40MinPipDisplayLabel.Name = "c40MinPipDisplayLabel";
             this.c40MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c40MinPipDisplayLabel.TabIndex = 24;
@@ -313,7 +325,7 @@
             // c40PipTextBox
             // 
             this.c40PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c40PipTextBox.Location = new System.Drawing.Point(613, 240);
+            this.c40PipTextBox.Location = new System.Drawing.Point(613, 277);
             this.c40PipTextBox.Name = "c40PipTextBox";
             this.c40PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c40PipTextBox.TabIndex = 23;
@@ -323,7 +335,7 @@
             // c40MaxPipDisplayLabel
             // 
             this.c40MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c40MaxPipDisplayLabel.Location = new System.Drawing.Point(608, 203);
+            this.c40MaxPipDisplayLabel.Location = new System.Drawing.Point(608, 240);
             this.c40MaxPipDisplayLabel.Name = "c40MaxPipDisplayLabel";
             this.c40MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c40MaxPipDisplayLabel.TabIndex = 22;
@@ -333,7 +345,7 @@
             // c50Label
             // 
             this.c50Label.ForeColor = System.Drawing.Color.White;
-            this.c50Label.Location = new System.Drawing.Point(714, 168);
+            this.c50Label.Location = new System.Drawing.Point(714, 205);
             this.c50Label.Name = "c50Label";
             this.c50Label.Size = new System.Drawing.Size(105, 25);
             this.c50Label.TabIndex = 29;
@@ -343,7 +355,7 @@
             // c50MinPipDisplayLabel
             // 
             this.c50MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c50MinPipDisplayLabel.Location = new System.Drawing.Point(714, 285);
+            this.c50MinPipDisplayLabel.Location = new System.Drawing.Point(714, 322);
             this.c50MinPipDisplayLabel.Name = "c50MinPipDisplayLabel";
             this.c50MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c50MinPipDisplayLabel.TabIndex = 28;
@@ -353,7 +365,7 @@
             // c50PipTextBox
             // 
             this.c50PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c50PipTextBox.Location = new System.Drawing.Point(719, 240);
+            this.c50PipTextBox.Location = new System.Drawing.Point(719, 277);
             this.c50PipTextBox.Name = "c50PipTextBox";
             this.c50PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c50PipTextBox.TabIndex = 27;
@@ -363,7 +375,7 @@
             // c50MaxPipDisplayLabel
             // 
             this.c50MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c50MaxPipDisplayLabel.Location = new System.Drawing.Point(714, 203);
+            this.c50MaxPipDisplayLabel.Location = new System.Drawing.Point(714, 240);
             this.c50MaxPipDisplayLabel.Name = "c50MaxPipDisplayLabel";
             this.c50MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c50MaxPipDisplayLabel.TabIndex = 26;
@@ -373,7 +385,7 @@
             // c60Label
             // 
             this.c60Label.ForeColor = System.Drawing.Color.White;
-            this.c60Label.Location = new System.Drawing.Point(820, 168);
+            this.c60Label.Location = new System.Drawing.Point(820, 205);
             this.c60Label.Name = "c60Label";
             this.c60Label.Size = new System.Drawing.Size(105, 25);
             this.c60Label.TabIndex = 33;
@@ -383,7 +395,7 @@
             // c60MinPipDisplayLabel
             // 
             this.c60MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c60MinPipDisplayLabel.Location = new System.Drawing.Point(820, 285);
+            this.c60MinPipDisplayLabel.Location = new System.Drawing.Point(820, 322);
             this.c60MinPipDisplayLabel.Name = "c60MinPipDisplayLabel";
             this.c60MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c60MinPipDisplayLabel.TabIndex = 32;
@@ -393,7 +405,7 @@
             // c60PipTextBox
             // 
             this.c60PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c60PipTextBox.Location = new System.Drawing.Point(825, 240);
+            this.c60PipTextBox.Location = new System.Drawing.Point(825, 277);
             this.c60PipTextBox.Name = "c60PipTextBox";
             this.c60PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c60PipTextBox.TabIndex = 31;
@@ -403,7 +415,7 @@
             // c60MaxPipDisplayLabel
             // 
             this.c60MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c60MaxPipDisplayLabel.Location = new System.Drawing.Point(820, 203);
+            this.c60MaxPipDisplayLabel.Location = new System.Drawing.Point(820, 240);
             this.c60MaxPipDisplayLabel.Name = "c60MaxPipDisplayLabel";
             this.c60MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c60MaxPipDisplayLabel.TabIndex = 30;
@@ -413,7 +425,7 @@
             // c70Label
             // 
             this.c70Label.ForeColor = System.Drawing.Color.White;
-            this.c70Label.Location = new System.Drawing.Point(926, 168);
+            this.c70Label.Location = new System.Drawing.Point(926, 205);
             this.c70Label.Name = "c70Label";
             this.c70Label.Size = new System.Drawing.Size(105, 25);
             this.c70Label.TabIndex = 37;
@@ -423,7 +435,7 @@
             // c70MinPipDisplayLabel
             // 
             this.c70MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c70MinPipDisplayLabel.Location = new System.Drawing.Point(926, 285);
+            this.c70MinPipDisplayLabel.Location = new System.Drawing.Point(926, 322);
             this.c70MinPipDisplayLabel.Name = "c70MinPipDisplayLabel";
             this.c70MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c70MinPipDisplayLabel.TabIndex = 36;
@@ -433,7 +445,7 @@
             // c70PipTextBox
             // 
             this.c70PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c70PipTextBox.Location = new System.Drawing.Point(931, 240);
+            this.c70PipTextBox.Location = new System.Drawing.Point(931, 277);
             this.c70PipTextBox.Name = "c70PipTextBox";
             this.c70PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c70PipTextBox.TabIndex = 35;
@@ -443,7 +455,7 @@
             // c70MaxPipDisplayLabel
             // 
             this.c70MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c70MaxPipDisplayLabel.Location = new System.Drawing.Point(926, 203);
+            this.c70MaxPipDisplayLabel.Location = new System.Drawing.Point(926, 240);
             this.c70MaxPipDisplayLabel.Name = "c70MaxPipDisplayLabel";
             this.c70MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c70MaxPipDisplayLabel.TabIndex = 34;
@@ -453,7 +465,7 @@
             // c80Label
             // 
             this.c80Label.ForeColor = System.Drawing.Color.White;
-            this.c80Label.Location = new System.Drawing.Point(1032, 168);
+            this.c80Label.Location = new System.Drawing.Point(1032, 205);
             this.c80Label.Name = "c80Label";
             this.c80Label.Size = new System.Drawing.Size(105, 25);
             this.c80Label.TabIndex = 41;
@@ -463,7 +475,7 @@
             // c80MinPipDisplayLabel
             // 
             this.c80MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c80MinPipDisplayLabel.Location = new System.Drawing.Point(1032, 285);
+            this.c80MinPipDisplayLabel.Location = new System.Drawing.Point(1032, 322);
             this.c80MinPipDisplayLabel.Name = "c80MinPipDisplayLabel";
             this.c80MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c80MinPipDisplayLabel.TabIndex = 40;
@@ -473,7 +485,7 @@
             // c80PipTextBox
             // 
             this.c80PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c80PipTextBox.Location = new System.Drawing.Point(1037, 240);
+            this.c80PipTextBox.Location = new System.Drawing.Point(1037, 277);
             this.c80PipTextBox.Name = "c80PipTextBox";
             this.c80PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c80PipTextBox.TabIndex = 39;
@@ -483,7 +495,7 @@
             // c80MaxPipDisplayLabel
             // 
             this.c80MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c80MaxPipDisplayLabel.Location = new System.Drawing.Point(1032, 203);
+            this.c80MaxPipDisplayLabel.Location = new System.Drawing.Point(1032, 240);
             this.c80MaxPipDisplayLabel.Name = "c80MaxPipDisplayLabel";
             this.c80MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c80MaxPipDisplayLabel.TabIndex = 38;
@@ -493,7 +505,7 @@
             // c90Label
             // 
             this.c90Label.ForeColor = System.Drawing.Color.White;
-            this.c90Label.Location = new System.Drawing.Point(1138, 168);
+            this.c90Label.Location = new System.Drawing.Point(1138, 205);
             this.c90Label.Name = "c90Label";
             this.c90Label.Size = new System.Drawing.Size(105, 25);
             this.c90Label.TabIndex = 45;
@@ -503,7 +515,7 @@
             // c90MinPipDisplayLabel
             // 
             this.c90MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c90MinPipDisplayLabel.Location = new System.Drawing.Point(1138, 285);
+            this.c90MinPipDisplayLabel.Location = new System.Drawing.Point(1138, 322);
             this.c90MinPipDisplayLabel.Name = "c90MinPipDisplayLabel";
             this.c90MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c90MinPipDisplayLabel.TabIndex = 44;
@@ -513,7 +525,7 @@
             // c90PipTextBox
             // 
             this.c90PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c90PipTextBox.Location = new System.Drawing.Point(1143, 240);
+            this.c90PipTextBox.Location = new System.Drawing.Point(1143, 277);
             this.c90PipTextBox.Name = "c90PipTextBox";
             this.c90PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c90PipTextBox.TabIndex = 43;
@@ -523,7 +535,7 @@
             // c90MaxPipDisplayLabel
             // 
             this.c90MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c90MaxPipDisplayLabel.Location = new System.Drawing.Point(1138, 203);
+            this.c90MaxPipDisplayLabel.Location = new System.Drawing.Point(1138, 240);
             this.c90MaxPipDisplayLabel.Name = "c90MaxPipDisplayLabel";
             this.c90MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c90MaxPipDisplayLabel.TabIndex = 42;
@@ -533,17 +545,17 @@
             // c100Label
             // 
             this.c100Label.ForeColor = System.Drawing.Color.White;
-            this.c100Label.Location = new System.Drawing.Point(1244, 168);
+            this.c100Label.Location = new System.Drawing.Point(1244, 205);
             this.c100Label.Name = "c100Label";
             this.c100Label.Size = new System.Drawing.Size(105, 25);
             this.c100Label.TabIndex = 49;
             this.c100Label.Text = "0.10";
-            this.c100Label.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.c100Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // c100MinPipDisplayLabel
             // 
             this.c100MinPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c100MinPipDisplayLabel.Location = new System.Drawing.Point(1244, 285);
+            this.c100MinPipDisplayLabel.Location = new System.Drawing.Point(1244, 322);
             this.c100MinPipDisplayLabel.Name = "c100MinPipDisplayLabel";
             this.c100MinPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c100MinPipDisplayLabel.TabIndex = 48;
@@ -553,7 +565,7 @@
             // c100PipTextBox
             // 
             this.c100PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c100PipTextBox.Location = new System.Drawing.Point(1249, 240);
+            this.c100PipTextBox.Location = new System.Drawing.Point(1249, 277);
             this.c100PipTextBox.Name = "c100PipTextBox";
             this.c100PipTextBox.Size = new System.Drawing.Size(100, 31);
             this.c100PipTextBox.TabIndex = 47;
@@ -563,7 +575,7 @@
             // c100MaxPipDisplayLabel
             // 
             this.c100MaxPipDisplayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.c100MaxPipDisplayLabel.Location = new System.Drawing.Point(1244, 203);
+            this.c100MaxPipDisplayLabel.Location = new System.Drawing.Point(1244, 240);
             this.c100MaxPipDisplayLabel.Name = "c100MaxPipDisplayLabel";
             this.c100MaxPipDisplayLabel.Size = new System.Drawing.Size(105, 23);
             this.c100MaxPipDisplayLabel.TabIndex = 46;
@@ -573,7 +585,7 @@
             // complianceSettingLabel
             // 
             this.complianceSettingLabel.ForeColor = System.Drawing.Color.White;
-            this.complianceSettingLabel.Location = new System.Drawing.Point(29, 168);
+            this.complianceSettingLabel.Location = new System.Drawing.Point(29, 205);
             this.complianceSettingLabel.Name = "complianceSettingLabel";
             this.complianceSettingLabel.Size = new System.Drawing.Size(260, 23);
             this.complianceSettingLabel.TabIndex = 50;
@@ -583,7 +595,7 @@
             // maxPipLabel
             // 
             this.maxPipLabel.ForeColor = System.Drawing.Color.White;
-            this.maxPipLabel.Location = new System.Drawing.Point(29, 203);
+            this.maxPipLabel.Location = new System.Drawing.Point(29, 240);
             this.maxPipLabel.Name = "maxPipLabel";
             this.maxPipLabel.Size = new System.Drawing.Size(260, 23);
             this.maxPipLabel.TabIndex = 51;
@@ -593,7 +605,7 @@
             // measuredPipLabel
             // 
             this.measuredPipLabel.ForeColor = System.Drawing.Color.White;
-            this.measuredPipLabel.Location = new System.Drawing.Point(29, 243);
+            this.measuredPipLabel.Location = new System.Drawing.Point(29, 280);
             this.measuredPipLabel.Name = "measuredPipLabel";
             this.measuredPipLabel.Size = new System.Drawing.Size(260, 23);
             this.measuredPipLabel.TabIndex = 52;
@@ -603,19 +615,149 @@
             // minPipLabel
             // 
             this.minPipLabel.ForeColor = System.Drawing.Color.White;
-            this.minPipLabel.Location = new System.Drawing.Point(29, 285);
+            this.minPipLabel.Location = new System.Drawing.Point(29, 322);
             this.minPipLabel.Name = "minPipLabel";
             this.minPipLabel.Size = new System.Drawing.Size(260, 23);
             this.minPipLabel.TabIndex = 53;
             this.minPipLabel.Text = "Minimum Pip:";
             this.minPipLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // selectLungModelTypeGroupBox
+            // 
+            this.selectLungModelTypeGroupBox.Controls.Add(this.daRightRadioButton);
+            this.selectLungModelTypeGroupBox.Controls.Add(this.daLeftRadioButton);
+            this.selectLungModelTypeGroupBox.Controls.Add(this.aiAdultRadioButton);
+            this.selectLungModelTypeGroupBox.Controls.Add(this.aiInfantRadioButton);
+            this.selectLungModelTypeGroupBox.Controls.Add(this.singleRadioButton);
+            this.selectLungModelTypeGroupBox.ForeColor = System.Drawing.Color.White;
+            this.selectLungModelTypeGroupBox.Location = new System.Drawing.Point(556, 29);
+            this.selectLungModelTypeGroupBox.Name = "selectLungModelTypeGroupBox";
+            this.selectLungModelTypeGroupBox.Size = new System.Drawing.Size(793, 84);
+            this.selectLungModelTypeGroupBox.TabIndex = 54;
+            this.selectLungModelTypeGroupBox.TabStop = false;
+            this.selectLungModelTypeGroupBox.Text = "Select lung model / type";
+            // 
+            // singleRadioButton
+            // 
+            this.singleRadioButton.AutoSize = true;
+            this.singleRadioButton.Checked = true;
+            this.singleRadioButton.Location = new System.Drawing.Point(50, 38);
+            this.singleRadioButton.Name = "singleRadioButton";
+            this.singleRadioButton.Size = new System.Drawing.Size(103, 29);
+            this.singleRadioButton.TabIndex = 0;
+            this.singleRadioButton.TabStop = true;
+            this.singleRadioButton.Tag = "SL0";
+            this.singleRadioButton.Text = "Single";
+            this.singleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // aiInfantRadioButton
+            // 
+            this.aiInfantRadioButton.AutoSize = true;
+            this.aiInfantRadioButton.Location = new System.Drawing.Point(178, 37);
+            this.aiInfantRadioButton.Name = "aiInfantRadioButton";
+            this.aiInfantRadioButton.Size = new System.Drawing.Size(121, 29);
+            this.aiInfantRadioButton.TabIndex = 1;
+            this.aiInfantRadioButton.Tag = "AII";
+            this.aiInfantRadioButton.Text = "AI Infant";
+            this.aiInfantRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // aiAdultRadioButton
+            // 
+            this.aiAdultRadioButton.AutoSize = true;
+            this.aiAdultRadioButton.Location = new System.Drawing.Point(324, 36);
+            this.aiAdultRadioButton.Name = "aiAdultRadioButton";
+            this.aiAdultRadioButton.Size = new System.Drawing.Size(117, 29);
+            this.aiAdultRadioButton.TabIndex = 2;
+            this.aiAdultRadioButton.Tag = "AIA";
+            this.aiAdultRadioButton.Text = "AI Adult";
+            this.aiAdultRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // daLeftRadioButton
+            // 
+            this.daLeftRadioButton.AutoSize = true;
+            this.daLeftRadioButton.Location = new System.Drawing.Point(466, 35);
+            this.daLeftRadioButton.Name = "daLeftRadioButton";
+            this.daLeftRadioButton.Size = new System.Drawing.Size(114, 29);
+            this.daLeftRadioButton.TabIndex = 3;
+            this.daLeftRadioButton.Tag = "DAL";
+            this.daLeftRadioButton.Text = "DA Left";
+            this.daLeftRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // daRightRadioButton
+            // 
+            this.daRightRadioButton.AutoSize = true;
+            this.daRightRadioButton.Location = new System.Drawing.Point(605, 34);
+            this.daRightRadioButton.Name = "daRightRadioButton";
+            this.daRightRadioButton.Size = new System.Drawing.Size(128, 29);
+            this.daRightRadioButton.TabIndex = 4;
+            this.daRightRadioButton.Tag = "DAR";
+            this.daRightRadioButton.Text = "DA Right";
+            this.daRightRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // serialNumberTextBox
+            // 
+            this.serialNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serialNumberTextBox.Location = new System.Drawing.Point(866, 128);
+            this.serialNumberTextBox.Name = "serialNumberTextBox";
+            this.serialNumberTextBox.Size = new System.Drawing.Size(86, 31);
+            this.serialNumberTextBox.TabIndex = 55;
+            this.serialNumberTextBox.Text = "0000";
+            this.serialNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // serialNumberLabel
+            // 
+            this.serialNumberLabel.ForeColor = System.Drawing.Color.White;
+            this.serialNumberLabel.Location = new System.Drawing.Point(551, 131);
+            this.serialNumberLabel.Name = "serialNumberLabel";
+            this.serialNumberLabel.Size = new System.Drawing.Size(222, 23);
+            this.serialNumberLabel.TabIndex = 56;
+            this.serialNumberLabel.Text = "Serial Number:";
+            this.serialNumberLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // smPrefixDisplayLabel
+            // 
+            this.smPrefixDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smPrefixDisplayLabel.ForeColor = System.Drawing.Color.White;
+            this.smPrefixDisplayLabel.Location = new System.Drawing.Point(795, 131);
+            this.smPrefixDisplayLabel.Name = "smPrefixDisplayLabel";
+            this.smPrefixDisplayLabel.Size = new System.Drawing.Size(67, 25);
+            this.smPrefixDisplayLabel.TabIndex = 57;
+            this.smPrefixDisplayLabel.Text = "SL0";
+            this.smPrefixDisplayLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // buildPVLFileButton
+            // 
+            this.buildPVLFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buildPVLFileButton.Location = new System.Drawing.Point(1038, 490);
+            this.buildPVLFileButton.Name = "buildPVLFileButton";
+            this.buildPVLFileButton.Size = new System.Drawing.Size(311, 68);
+            this.buildPVLFileButton.TabIndex = 58;
+            this.buildPVLFileButton.Text = "Build SL00000.pvl";
+            this.buildPVLFileButton.UseVisualStyleBackColor = true;
+            // 
+            // showDataNormalizationFileButtonheckBox
+            // 
+            this.showDataNormalizationFileButtonheckBox.AutoSize = true;
+            this.showDataNormalizationFileButtonheckBox.ForeColor = System.Drawing.Color.White;
+            this.showDataNormalizationFileButtonheckBox.Location = new System.Drawing.Point(1038, 430);
+            this.showDataNormalizationFileButtonheckBox.Name = "showDataNormalizationFileButtonheckBox";
+            this.showDataNormalizationFileButtonheckBox.Size = new System.Drawing.Size(313, 29);
+            this.showDataNormalizationFileButtonheckBox.TabIndex = 59;
+            this.showDataNormalizationFileButtonheckBox.Text = "Show data normalization file";
+            this.showDataNormalizationFileButtonheckBox.UseVisualStyleBackColor = true;
+            // 
             // TTLCalibMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(1661, 609);
+            this.ClientSize = new System.Drawing.Size(1430, 609);
+            this.Controls.Add(this.showDataNormalizationFileButtonheckBox);
+            this.Controls.Add(this.buildPVLFileButton);
+            this.Controls.Add(this.smPrefixDisplayLabel);
+            this.Controls.Add(this.serialNumberLabel);
+            this.Controls.Add(this.serialNumberTextBox);
+            this.Controls.Add(this.selectLungModelTypeGroupBox);
             this.Controls.Add(this.minPipLabel);
             this.Controls.Add(this.measuredPipLabel);
             this.Controls.Add(this.maxPipLabel);
@@ -671,6 +813,8 @@
             this.Controls.Add(this.pBaroLabel);
             this.Name = "TTLCalibMain";
             this.Text = "MII PV2 TTL Calibration";
+            this.selectLungModelTypeGroupBox.ResumeLayout(false);
+            this.selectLungModelTypeGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -731,5 +875,16 @@
         private System.Windows.Forms.Label maxPipLabel;
         private System.Windows.Forms.Label measuredPipLabel;
         private System.Windows.Forms.Label minPipLabel;
+        private System.Windows.Forms.GroupBox selectLungModelTypeGroupBox;
+        private System.Windows.Forms.RadioButton aiAdultRadioButton;
+        private System.Windows.Forms.RadioButton aiInfantRadioButton;
+        private System.Windows.Forms.RadioButton singleRadioButton;
+        private System.Windows.Forms.RadioButton daRightRadioButton;
+        private System.Windows.Forms.RadioButton daLeftRadioButton;
+        private System.Windows.Forms.TextBox serialNumberTextBox;
+        private System.Windows.Forms.Label serialNumberLabel;
+        private System.Windows.Forms.Label smPrefixDisplayLabel;
+        private System.Windows.Forms.Button buildPVLFileButton;
+        private System.Windows.Forms.CheckBox showDataNormalizationFileButtonheckBox;
     }
 }
