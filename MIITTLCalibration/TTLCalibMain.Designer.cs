@@ -47,7 +47,7 @@
             this.c20MaxPipDisplayLabel = new System.Windows.Forms.Label();
             this.c30Label = new System.Windows.Forms.Label();
             this.c30MinPipDisplayLabel = new System.Windows.Forms.Label();
-            this.c30PipTestBox = new System.Windows.Forms.TextBox();
+            this.c30PipTextBox = new System.Windows.Forms.TextBox();
             this.c30MaxPipDisplayLabel = new System.Windows.Forms.Label();
             this.c40Label = new System.Windows.Forms.Label();
             this.c40MinPipDisplayLabel = new System.Windows.Forms.Label();
@@ -82,14 +82,14 @@
             this.measuredPipLabel = new System.Windows.Forms.Label();
             this.minPipLabel = new System.Windows.Forms.Label();
             this.selectLungModelTypeGroupBox = new System.Windows.Forms.GroupBox();
-            this.singleRadioButton = new System.Windows.Forms.RadioButton();
-            this.aiInfantRadioButton = new System.Windows.Forms.RadioButton();
-            this.aiAdultRadioButton = new System.Windows.Forms.RadioButton();
-            this.daLeftRadioButton = new System.Windows.Forms.RadioButton();
             this.daRightRadioButton = new System.Windows.Forms.RadioButton();
+            this.daLeftRadioButton = new System.Windows.Forms.RadioButton();
+            this.aiAdultRadioButton = new System.Windows.Forms.RadioButton();
+            this.aiInfantRadioButton = new System.Windows.Forms.RadioButton();
+            this.singleRadioButton = new System.Windows.Forms.RadioButton();
             this.serialNumberTextBox = new System.Windows.Forms.TextBox();
             this.serialNumberLabel = new System.Windows.Forms.Label();
-            this.smPrefixDisplayLabel = new System.Windows.Forms.Label();
+            this.snPrefixDisplayLabel = new System.Windows.Forms.Label();
             this.buildPVLFileButton = new System.Windows.Forms.Button();
             this.showDataNormalizationFileButtonheckBox = new System.Windows.Forms.CheckBox();
             this.selectLungModelTypeGroupBox.SuspendLayout();
@@ -282,15 +282,15 @@
             this.c30MinPipDisplayLabel.Text = "Low";
             this.c30MinPipDisplayLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // c30PipTestBox
+            // c30PipTextBox
             // 
-            this.c30PipTestBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c30PipTestBox.Location = new System.Drawing.Point(507, 277);
-            this.c30PipTestBox.Name = "c30PipTestBox";
-            this.c30PipTestBox.Size = new System.Drawing.Size(100, 31);
-            this.c30PipTestBox.TabIndex = 19;
-            this.c30PipTestBox.Text = "33.33";
-            this.c30PipTestBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.c30PipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c30PipTextBox.Location = new System.Drawing.Point(507, 277);
+            this.c30PipTextBox.Name = "c30PipTextBox";
+            this.c30PipTextBox.Size = new System.Drawing.Size(100, 31);
+            this.c30PipTextBox.TabIndex = 19;
+            this.c30PipTextBox.Text = "33.33";
+            this.c30PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // c30MaxPipDisplayLabel
             // 
@@ -637,6 +637,54 @@
             this.selectLungModelTypeGroupBox.TabStop = false;
             this.selectLungModelTypeGroupBox.Text = "Select lung model / type";
             // 
+            // daRightRadioButton
+            // 
+            this.daRightRadioButton.AutoSize = true;
+            this.daRightRadioButton.Location = new System.Drawing.Point(605, 34);
+            this.daRightRadioButton.Name = "daRightRadioButton";
+            this.daRightRadioButton.Size = new System.Drawing.Size(128, 29);
+            this.daRightRadioButton.TabIndex = 4;
+            this.daRightRadioButton.Tag = "DAR";
+            this.daRightRadioButton.Text = "DA Right";
+            this.daRightRadioButton.UseVisualStyleBackColor = true;
+            this.daRightRadioButton.CheckedChanged += new System.EventHandler(this.LungTypeRadioButton_CheckedChanged);
+            // 
+            // daLeftRadioButton
+            // 
+            this.daLeftRadioButton.AutoSize = true;
+            this.daLeftRadioButton.Location = new System.Drawing.Point(466, 35);
+            this.daLeftRadioButton.Name = "daLeftRadioButton";
+            this.daLeftRadioButton.Size = new System.Drawing.Size(114, 29);
+            this.daLeftRadioButton.TabIndex = 3;
+            this.daLeftRadioButton.Tag = "DAL";
+            this.daLeftRadioButton.Text = "DA Left";
+            this.daLeftRadioButton.UseVisualStyleBackColor = true;
+            this.daLeftRadioButton.CheckedChanged += new System.EventHandler(this.LungTypeRadioButton_CheckedChanged);
+            // 
+            // aiAdultRadioButton
+            // 
+            this.aiAdultRadioButton.AutoSize = true;
+            this.aiAdultRadioButton.Location = new System.Drawing.Point(324, 36);
+            this.aiAdultRadioButton.Name = "aiAdultRadioButton";
+            this.aiAdultRadioButton.Size = new System.Drawing.Size(117, 29);
+            this.aiAdultRadioButton.TabIndex = 2;
+            this.aiAdultRadioButton.Tag = "AIA";
+            this.aiAdultRadioButton.Text = "AI Adult";
+            this.aiAdultRadioButton.UseVisualStyleBackColor = true;
+            this.aiAdultRadioButton.CheckedChanged += new System.EventHandler(this.LungTypeRadioButton_CheckedChanged);
+            // 
+            // aiInfantRadioButton
+            // 
+            this.aiInfantRadioButton.AutoSize = true;
+            this.aiInfantRadioButton.Location = new System.Drawing.Point(178, 37);
+            this.aiInfantRadioButton.Name = "aiInfantRadioButton";
+            this.aiInfantRadioButton.Size = new System.Drawing.Size(121, 29);
+            this.aiInfantRadioButton.TabIndex = 1;
+            this.aiInfantRadioButton.Tag = "AII";
+            this.aiInfantRadioButton.Text = "AI Infant";
+            this.aiInfantRadioButton.UseVisualStyleBackColor = true;
+            this.aiInfantRadioButton.CheckedChanged += new System.EventHandler(this.LungTypeRadioButton_CheckedChanged);
+            // 
             // singleRadioButton
             // 
             this.singleRadioButton.AutoSize = true;
@@ -649,50 +697,7 @@
             this.singleRadioButton.Tag = "SL0";
             this.singleRadioButton.Text = "Single";
             this.singleRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // aiInfantRadioButton
-            // 
-            this.aiInfantRadioButton.AutoSize = true;
-            this.aiInfantRadioButton.Location = new System.Drawing.Point(178, 37);
-            this.aiInfantRadioButton.Name = "aiInfantRadioButton";
-            this.aiInfantRadioButton.Size = new System.Drawing.Size(121, 29);
-            this.aiInfantRadioButton.TabIndex = 1;
-            this.aiInfantRadioButton.Tag = "AII";
-            this.aiInfantRadioButton.Text = "AI Infant";
-            this.aiInfantRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // aiAdultRadioButton
-            // 
-            this.aiAdultRadioButton.AutoSize = true;
-            this.aiAdultRadioButton.Location = new System.Drawing.Point(324, 36);
-            this.aiAdultRadioButton.Name = "aiAdultRadioButton";
-            this.aiAdultRadioButton.Size = new System.Drawing.Size(117, 29);
-            this.aiAdultRadioButton.TabIndex = 2;
-            this.aiAdultRadioButton.Tag = "AIA";
-            this.aiAdultRadioButton.Text = "AI Adult";
-            this.aiAdultRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // daLeftRadioButton
-            // 
-            this.daLeftRadioButton.AutoSize = true;
-            this.daLeftRadioButton.Location = new System.Drawing.Point(466, 35);
-            this.daLeftRadioButton.Name = "daLeftRadioButton";
-            this.daLeftRadioButton.Size = new System.Drawing.Size(114, 29);
-            this.daLeftRadioButton.TabIndex = 3;
-            this.daLeftRadioButton.Tag = "DAL";
-            this.daLeftRadioButton.Text = "DA Left";
-            this.daLeftRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // daRightRadioButton
-            // 
-            this.daRightRadioButton.AutoSize = true;
-            this.daRightRadioButton.Location = new System.Drawing.Point(605, 34);
-            this.daRightRadioButton.Name = "daRightRadioButton";
-            this.daRightRadioButton.Size = new System.Drawing.Size(128, 29);
-            this.daRightRadioButton.TabIndex = 4;
-            this.daRightRadioButton.Tag = "DAR";
-            this.daRightRadioButton.Text = "DA Right";
-            this.daRightRadioButton.UseVisualStyleBackColor = true;
+            this.singleRadioButton.CheckedChanged += new System.EventHandler(this.LungTypeRadioButton_CheckedChanged);
             // 
             // serialNumberTextBox
             // 
@@ -714,16 +719,16 @@
             this.serialNumberLabel.Text = "Serial Number:";
             this.serialNumberLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // smPrefixDisplayLabel
+            // snPrefixDisplayLabel
             // 
-            this.smPrefixDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.smPrefixDisplayLabel.ForeColor = System.Drawing.Color.White;
-            this.smPrefixDisplayLabel.Location = new System.Drawing.Point(795, 131);
-            this.smPrefixDisplayLabel.Name = "smPrefixDisplayLabel";
-            this.smPrefixDisplayLabel.Size = new System.Drawing.Size(67, 25);
-            this.smPrefixDisplayLabel.TabIndex = 57;
-            this.smPrefixDisplayLabel.Text = "SL0";
-            this.smPrefixDisplayLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.snPrefixDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.snPrefixDisplayLabel.ForeColor = System.Drawing.Color.White;
+            this.snPrefixDisplayLabel.Location = new System.Drawing.Point(795, 131);
+            this.snPrefixDisplayLabel.Name = "snPrefixDisplayLabel";
+            this.snPrefixDisplayLabel.Size = new System.Drawing.Size(67, 25);
+            this.snPrefixDisplayLabel.TabIndex = 57;
+            this.snPrefixDisplayLabel.Text = "SL0";
+            this.snPrefixDisplayLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // buildPVLFileButton
             // 
@@ -754,7 +759,7 @@
             this.ClientSize = new System.Drawing.Size(1430, 609);
             this.Controls.Add(this.showDataNormalizationFileButtonheckBox);
             this.Controls.Add(this.buildPVLFileButton);
-            this.Controls.Add(this.smPrefixDisplayLabel);
+            this.Controls.Add(this.snPrefixDisplayLabel);
             this.Controls.Add(this.serialNumberLabel);
             this.Controls.Add(this.serialNumberTextBox);
             this.Controls.Add(this.selectLungModelTypeGroupBox);
@@ -792,7 +797,7 @@
             this.Controls.Add(this.c40MaxPipDisplayLabel);
             this.Controls.Add(this.c30Label);
             this.Controls.Add(this.c30MinPipDisplayLabel);
-            this.Controls.Add(this.c30PipTestBox);
+            this.Controls.Add(this.c30PipTextBox);
             this.Controls.Add(this.c30MaxPipDisplayLabel);
             this.Controls.Add(this.c20Label);
             this.Controls.Add(this.c20MinPipDisplayLabel);
@@ -813,6 +818,8 @@
             this.Controls.Add(this.pBaroLabel);
             this.Name = "TTLCalibMain";
             this.Text = "MII PV2 TTL Calibration";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TTLCalibMain_FormClosing);
+            this.Load += new System.EventHandler(this.TTLCalibMain_Load);
             this.selectLungModelTypeGroupBox.ResumeLayout(false);
             this.selectLungModelTypeGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -841,7 +848,7 @@
         private System.Windows.Forms.Label c20MaxPipDisplayLabel;
         private System.Windows.Forms.Label c30Label;
         private System.Windows.Forms.Label c30MinPipDisplayLabel;
-        private System.Windows.Forms.TextBox c30PipTestBox;
+        private System.Windows.Forms.TextBox c30PipTextBox;
         private System.Windows.Forms.Label c30MaxPipDisplayLabel;
         private System.Windows.Forms.Label c40Label;
         private System.Windows.Forms.Label c40MinPipDisplayLabel;
@@ -883,7 +890,7 @@
         private System.Windows.Forms.RadioButton daLeftRadioButton;
         private System.Windows.Forms.TextBox serialNumberTextBox;
         private System.Windows.Forms.Label serialNumberLabel;
-        private System.Windows.Forms.Label smPrefixDisplayLabel;
+        private System.Windows.Forms.Label snPrefixDisplayLabel;
         private System.Windows.Forms.Button buildPVLFileButton;
         private System.Windows.Forms.CheckBox showDataNormalizationFileButtonheckBox;
     }
