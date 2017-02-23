@@ -36,18 +36,30 @@ namespace MIITTLCalibration
         private TextBox[] pipTextBoxes = new TextBox[10];
         private Label[] minPipDisplayLabels = new Label[10];
 
-        private string dataPath = Path.Combine(Application.ExecutablePath, @"\Data");
+        private string dataPath = Path.Combine(Application.StartupPath, "Data");
         public string DataPath
         {
             get { return dataPath; }
             set { dataPath = value; }
         }
         
-        private string pVLFilePath = Path.Combine(Application.ExecutablePath, @"\PVL");
+        private string pVLFilePath = Path.Combine(Application.StartupPath, "PVL");
         public string PVLFilePath
         {
             get { return pVLFilePath; }
             set { pVLFilePath = value; }
+        }
+
+        private string pVLFileName = "SL00000.pvl";
+        public string PVLFileName
+        {
+            get 
+            { 
+                // Build & return file name based on lung model type and serial number
+                pVLFileName = SNPrefix + serialNumberTextBox.Text + ".pvl";
+                return pVLFileName; 
+            }
+            set { pVLFileName = value; }
         }
 
         private string sNPrefix = "SL0";
@@ -108,6 +120,8 @@ namespace MIITTLCalibration
         #region Form level event handlers
         private void TTLCalibMain_Load(object sender, EventArgs e)
         {
+            DataPath = Path.Combine(Application.StartupPath, "Data");
+            
             InitializeExcelWorksheets();
 
             if (ExcelOK)
@@ -132,8 +146,9 @@ namespace MIITTLCalibration
             if (ltrb != null)
             {
                 SNPrefix = ltrb.Tag.ToString();
-
+                snPrefixDisplayLabel.Text = SNPrefix;
             }
+            buildPVLFileButton.Text = "Build " + PVLFileName;
         }
 
         #endregion Form level event handlers
@@ -155,6 +170,7 @@ namespace MIITTLCalibration
                 try
                 {
                     ExcelApp = new Excel.Application();
+                    ExcelApp.Visible = true;
                 }
                 catch (Exception ex)
                 {
