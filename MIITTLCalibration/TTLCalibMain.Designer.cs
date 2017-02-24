@@ -708,6 +708,7 @@
             this.serialNumberTextBox.TabIndex = 55;
             this.serialNumberTextBox.Text = "0000";
             this.serialNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.serialNumberTextBox.TextChanged += new System.EventHandler(this.serialNumberTextBox_TextChanged);
             // 
             // serialNumberLabel
             // 
@@ -739,6 +740,7 @@
             this.buildPVLFileButton.TabIndex = 58;
             this.buildPVLFileButton.Text = "Build SL00000.pvl";
             this.buildPVLFileButton.UseVisualStyleBackColor = true;
+            this.buildPVLFileButton.Click += new System.EventHandler(this.buildPVLFileButton_Click);
             // 
             // showDataNormalizationFileButtonheckBox
             // 
@@ -750,13 +752,14 @@
             this.showDataNormalizationFileButtonheckBox.TabIndex = 59;
             this.showDataNormalizationFileButtonheckBox.Text = "Show data normalization file";
             this.showDataNormalizationFileButtonheckBox.UseVisualStyleBackColor = true;
+            this.showDataNormalizationFileButtonheckBox.CheckedChanged += new System.EventHandler(this.showDataNormalizationFileButtonheckBox_CheckedChanged);
             // 
             // TTLCalibMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(1430, 609);
+            this.ClientSize = new System.Drawing.Size(1443, 609);
             this.Controls.Add(this.showDataNormalizationFileButtonheckBox);
             this.Controls.Add(this.buildPVLFileButton);
             this.Controls.Add(this.snPrefixDisplayLabel);
@@ -816,6 +819,7 @@
             this.Controls.Add(this.pBaroTextBox);
             this.Controls.Add(this.pBaroUnitsLabel);
             this.Controls.Add(this.pBaroLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "TTLCalibMain";
             this.Text = "MII PV2 TTL Calibration";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TTLCalibMain_FormClosing);

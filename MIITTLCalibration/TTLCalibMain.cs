@@ -31,7 +31,8 @@ namespace MIITTLCalibration
             get { return excelOK; }
             set { excelOK = value; }
         }
-        
+
+        private Label[] cSettingDisplayLabels = new Label[10];
         private Label[] maxPipDisplayLabels = new Label[10];
         private TextBox[] pipTextBoxes = new TextBox[10];
         private Label[] minPipDisplayLabels = new Label[10];
@@ -82,6 +83,17 @@ namespace MIITTLCalibration
         {
             InitializeComponent();
 
+            cSettingDisplayLabels[0] = c10Label;
+            cSettingDisplayLabels[1] = c20Label;
+            cSettingDisplayLabels[2] = c30Label;
+            cSettingDisplayLabels[3] = c40Label;
+            cSettingDisplayLabels[4] = c50Label;
+            cSettingDisplayLabels[5] = c60Label;
+            cSettingDisplayLabels[6] = c70Label;
+            cSettingDisplayLabels[7] = c80Label;
+            cSettingDisplayLabels[8] = c90Label;
+            cSettingDisplayLabels[9] = c100Label;
+
             maxPipDisplayLabels[0] = c10MaxPipDisplayLabel;
             maxPipDisplayLabels[1] = c20MaxPipDisplayLabel;
             maxPipDisplayLabels[2] = c30MaxPipDisplayLabel;
@@ -120,23 +132,54 @@ namespace MIITTLCalibration
         #region Form level event handlers
         private void TTLCalibMain_Load(object sender, EventArgs e)
         {
-            DataPath = Path.Combine(Application.StartupPath, "Data");
-            
+            // Show splash screen while Excel loads
+            LoadWorkbookSplashSscreen lwss = new LoadWorkbookSplashSscreen();
+            lwss.Show();
+
             InitializeExcelWorksheets();
 
             if (ExcelOK)
             {
                 // Read and display compliance setting values and Pip limits
                 // (may move to a helper function - same functionality needed for changing lung model & type)
-
+                System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
+                System.Array maxPipVals = ActiveCalWorksheet.get_Range("C9", "L9").Cells.Value;
+                System.Array nomPipVals = ActiveCalWorksheet.get_Range("C8", "L8").Cells.Value;
+                System.Array minPipVals = ActiveCalWorksheet.get_Range("C11", "L11").Cells.Value;
+                for (int i=0; i<10; ++i)
+                {
+                    cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                    maxPipDisplayLabels[i].Text = ((double)maxPipVals.GetValue(1, i + 1)).ToString("0.00");
+                    pipTextBoxes[i].Text = ((double)nomPipVals.GetValue(1, i + 1)).ToString("0.00");
+                    minPipDisplayLabels[i].Text = ((double)minPipVals.GetValue(1, i + 1)).ToString("0.00");
+                }
             }
+
+            // Close splash screen
+            lwss.Close();
         }
 
         private void TTLCalibMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ExcelApp != null)
             {
+                // Close the PV Cal workbook - do NOT save changes
+                // Check whether Close(true) saves the file - YES
+                PVCalWorkbook.Close(false);
                 ExcelApp.Quit();
+            }
+        }
+
+        private void showDataNormalizationFileButtonheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ExcelOK)
+            {
+                ExcelApp.Visible = showDataNormalizationFileButtonheckBox.Checked;
+            }
+            else
+            {
+                // Re-initialize whatever aspects of Excel and PV Cal.xlsx found missing
+
             }
         }
 
@@ -147,8 +190,63 @@ namespace MIITTLCalibration
             {
                 SNPrefix = ltrb.Tag.ToString();
                 snPrefixDisplayLabel.Text = SNPrefix;
+                
+                // Select worksheet associated with the selected lung modwl & type
+                if (ltrb == singleRadioButton)
+                {
+                    ActiveCalWorksheet = SL0CalWorksheet;
+                }
+                else if (ltrb == aiInfantRadioButton)
+                {
+                    ActiveCalWorksheet = AIICalWorksheet;
+                }
+                else if (ltrb == aiAdultRadioButton)
+                {
+                    ActiveCalWorksheet = AIACalWorksheet;
+                }
+                else if (ltrb == daLeftRadioButton)
+                {
+                    ActiveCalWorksheet = DALCalWorksheet;
+                }
+                else if (ltrb == daRightRadioButton)
+                {
+                    ActiveCalWorksheet = DARCalWorksheet;
+                }
+                
+                // set compliance setting labels as appropriate for infant or adult lung
+                System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
+                for (int i = 0; i < 10; ++i)
+                {
+                    cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                }
+
             }
             buildPVLFileButton.Text = "Build " + PVLFileName;
+
+        }
+
+        private void serialNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            buildPVLFileButton.Text = "Build " + PVLFileName;
+        }
+
+        private void buildPVLFileButton_Click(object sender, EventArgs e)
+        {
+            double[] pipVals = new double[10];
+            for (int i=0; i<10; ++i)
+            {
+                pipVals[i] = Convert.ToDouble(pipTextBoxes[i].Text);
+            }
+
+            //Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.Cells[10, 3];
+            //Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.Cells[10, 12];
+            Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.get_Range("C10");
+            Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.get_Range("L10");
+            Excel.Range pipRange = ActiveCalWorksheet.Range[startCell, endCell];
+            pipRange.Value2 = pipVals;
+
+            // Read resultant compliance coefficient values as strings and write to a new PVL file
+
         }
 
         #endregion Form level event handlers
@@ -170,11 +268,12 @@ namespace MIITTLCalibration
                 try
                 {
                     ExcelApp = new Excel.Application();
-                    ExcelApp.Visible = true;
+                    //ExcelApp.Visible = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Microsoft Excel error");
+                    ExcelApp = null;
                     ExcelOK = false;
                     return;
                 }
@@ -188,6 +287,12 @@ namespace MIITTLCalibration
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Microsoft Excel error");
+                    PVCalWorkbook = null;
+                    if (ExcelApp != null)
+                    {
+                        ExcelApp.Quit();
+                        ExcelApp = null;
+                    }
                     ExcelOK = false;
                     return;
                 }

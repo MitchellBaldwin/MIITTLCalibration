@@ -1,6 +1,6 @@
 ﻿namespace MIITTLCalibration
 {
-    partial class LoadWorkboatSplashscreen
+    partial class LoadWorkbookSplashSscreen
     {
         /// <summary>
         /// Required designer variable.

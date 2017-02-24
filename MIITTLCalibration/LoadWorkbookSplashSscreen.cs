@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MIITTLCalibration
 {
-    public partial class LoadWorkboatSplashscreen : Form
+    public partial class LoadWorkbookSplashSscreen : Form
     {
-        public LoadWorkboatSplashscreen()
+        public LoadWorkbookSplashSscreen()
         {
             InitializeComponent();
         }

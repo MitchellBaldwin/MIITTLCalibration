@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoadWorkboatSplashscreen.cs">
+    <Compile Include="LoadWorkbookSplashSscreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadWorkboatSplashscreen.Designer.cs">
-      <DependentUpon>LoadWorkboatSplashscreen.cs</DependentUpon>
+    <Compile Include="LoadWorkbookSplashSscreen.Designer.cs">
+      <DependentUpon>LoadWorkbookSplashSscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,8 +62,8 @@
     <Compile Include="TTLCalibMain.Designer.cs">
       <DependentUpon>TTLCalibMain.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LoadWorkboatSplashscreen.resx">
-      <DependentUpon>LoadWorkboatSplashscreen.cs</DependentUpon>
+    <EmbeddedResource Include="LoadWorkbookSplashSscreen.resx">
+      <DependentUpon>LoadWorkbookSplashSscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
