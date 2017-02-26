@@ -233,19 +233,51 @@ namespace MIITTLCalibration
         private void buildPVLFileButton_Click(object sender, EventArgs e)
         {
             double[] pipVals = new double[10];
-            for (int i=0; i<10; ++i)
+            double[] ccVals = new double[4];
+            string[] pvlLines = new string[40];
+
+            for (int i = 0; i < 10; ++i)
             {
                 pipVals[i] = Convert.ToDouble(pipTextBoxes[i].Text);
             }
 
+            // Various ways to specifying cell ranges:
             //Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.Cells[10, 3];
             //Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.Cells[10, 12];
-            Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.get_Range("C10");
-            Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.get_Range("L10");
-            Excel.Range pipRange = ActiveCalWorksheet.Range[startCell, endCell];
+            //Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.get_Range("C10");
+            //Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.get_Range("L10");
+            //Excel.Range pipRange = ActiveCalWorksheet.Range[startCell, endCell];
+            
+            // Write the entered values for Pip measurements to the PV Cal worksheet:
+            Excel.Range pipRange = ActiveCalWorksheet.get_Range("C10", "L10");
             pipRange.Value2 = pipVals;
 
             // Read resultant compliance coefficient values as strings and write to a new PVL file
+            for (int j=0; j<10; ++j)
+            {
+                //Excel.Range ccRange = ActiveCalWorksheet.get_Range("Y22", "Y25");
+                Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.Cells[j * 17 + 22, 25];
+                Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.Cells[j * 17 + 25, 25];
+                Excel.Range ccRange = ActiveCalWorksheet.Range[startCell, endCell];
+                for (int i = 0; i < 4; ++i)
+                {
+                    var a = ccRange.Cells[i + 1, 1].Value2;
+                    ccVals[i] = ccRange.Cells[i + 1, 1].Value2;
+                    pvlLines[j * 4 + i] = ccVals[i].ToString("0.000000000000");
+                }
+            }
+
+            string pvlFilePathAndName = Path.Combine(PVLFilePath, PVLFileName);
+            using (StreamWriter pvlWriter = new StreamWriter(pvlFilePathAndName))
+            {
+                foreach (string line in pvlLines)
+                {
+                    pvlWriter.WriteLine(line);
+                }
+            }
+
+            // Display message box indicating the PVL file was successfully written:
+            MessageBox.Show("Successfully created: " + pvlFilePathAndName, "Created PVL File");
 
         }
 
