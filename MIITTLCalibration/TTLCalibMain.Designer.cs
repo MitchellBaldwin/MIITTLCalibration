@@ -92,6 +92,7 @@
             this.snPrefixDisplayLabel = new System.Windows.Forms.Label();
             this.buildPVLFileButton = new System.Windows.Forms.Button();
             this.showDataNormalizationFileButtonheckBox = new System.Windows.Forms.CheckBox();
+            this.pvlFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.selectLungModelTypeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -897,5 +898,6 @@
         private System.Windows.Forms.Label snPrefixDisplayLabel;
         private System.Windows.Forms.Button buildPVLFileButton;
         private System.Windows.Forms.CheckBox showDataNormalizationFileButtonheckBox;
+        private System.Windows.Forms.OpenFileDialog pvlFileDialog;
     }
 }

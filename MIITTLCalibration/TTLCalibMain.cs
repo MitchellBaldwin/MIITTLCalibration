@@ -213,13 +213,38 @@ namespace MIITTLCalibration
                     ActiveCalWorksheet = DARCalWorksheet;
                 }
                 
-                // set compliance setting labels as appropriate for infant or adult lung
+                // Set compliance setting labels and controls as appropriate for infant or adult lung:
                 System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
-                for (int i = 0; i < 10; ++i)
+                if (ActiveCalWorksheet == AIICalWorksheet)
                 {
-                    cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                    for (int i = 0; i < 10; ++i)
+                    {
+                        cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.000");
+                    }
+                    c70Label.Visible = false;
+                    c70MaxPipDisplayLabel.Visible = false;
+                    c70PipTextBox.Visible = false;
+                    c70MinPipDisplayLabel.Visible = false;
+                    c90Label.Visible = false;
+                    c90MaxPipDisplayLabel.Visible = false;
+                    c90PipTextBox.Visible = false;
+                    c90MinPipDisplayLabel.Visible = false;
                 }
-
+                else
+                {
+                    for (int i = 0; i < 10; ++i)
+                    {
+                        cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                    }
+                    c70Label.Visible = true;
+                    c70MaxPipDisplayLabel.Visible = true;
+                    c70PipTextBox.Visible = true;
+                    c70MinPipDisplayLabel.Visible = true;
+                    c90Label.Visible = true;
+                    c90MaxPipDisplayLabel.Visible = true;
+                    c90PipTextBox.Visible = true;
+                    c90MinPipDisplayLabel.Visible = true;
+                }
             }
             buildPVLFileButton.Text = "Build " + PVLFileName;
 
@@ -268,17 +293,28 @@ namespace MIITTLCalibration
             }
 
             string pvlFilePathAndName = Path.Combine(PVLFilePath, PVLFileName);
-            using (StreamWriter pvlWriter = new StreamWriter(pvlFilePathAndName))
+            
+            // Check whether file already exists and if so allow user to enter a different file name / path:
+            DialogResult result = DialogResult.OK;
+            bool pvlFileExists = File.Exists(pvlFilePathAndName);
+            if (pvlFileExists)
             {
-                foreach (string line in pvlLines)
-                {
-                    pvlWriter.WriteLine(line);
-                }
+                pvlFileDialog.InitialDirectory = PVLFilePath;
+                pvlFileDialog.FileName = PVLFileName;
+                result = pvlFileDialog.ShowDialog();
             }
-
-            // Display message box indicating the PVL file was successfully written:
-            MessageBox.Show("Successfully created: " + pvlFilePathAndName, "Created PVL File");
-
+            if (result == DialogResult.OK)
+            {
+                using (StreamWriter pvlWriter = new StreamWriter(pvlFilePathAndName))
+                {
+                    foreach (string line in pvlLines)
+                    {
+                        pvlWriter.WriteLine(line);
+                    }
+                }
+                // Display message box indicating the PVL file was successfully written:
+                MessageBox.Show("Successfully created: " + pvlFilePathAndName, "Created PVL File");
+            }
         }
 
         #endregion Form level event handlers
