@@ -288,7 +288,10 @@ namespace MIITTLCalibration
                 {
                     var a = ccRange.Cells[i + 1, 1].Value2;
                     ccVals[i] = ccRange.Cells[i + 1, 1].Value2;
-                    pvlLines[j * 4 + i] = ccVals[i].ToString("0.000000000000");
+                }
+                for (int i = 0; i < 4; ++i)
+                {
+                    pvlLines[j * 4 + i] = ccVals[3 - i].ToString("0.000000000000");
                 }
             }
 
@@ -299,9 +302,15 @@ namespace MIITTLCalibration
             bool pvlFileExists = File.Exists(pvlFilePathAndName);
             if (pvlFileExists)
             {
-                pvlFileDialog.InitialDirectory = PVLFilePath;
-                pvlFileDialog.FileName = PVLFileName;
-                result = pvlFileDialog.ShowDialog();
+                result = MessageBox.Show("PVL file: " + PVLFileName + " already exists, overwrite?",
+                                          "Confirm overwrite",
+                                          MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                {
+                    pvlFileDialog.InitialDirectory = PVLFilePath;
+                    pvlFileDialog.FileName = PVLFileName;
+                    result = pvlFileDialog.ShowDialog();
+                }
             }
             if (result == DialogResult.OK)
             {
