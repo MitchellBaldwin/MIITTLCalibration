@@ -324,6 +324,27 @@ namespace MIITTLCalibration
                 // Display message box indicating the PVL file was successfully written:
                 MessageBox.Show("Successfully created: " + pvlFilePathAndName, "Created PVL File");
             }
+
+            // Save a copy of the Excel worksheet with the data and results for this lung
+            // First delete all the worksheets except the active one:
+            ExcelApp.DisplayAlerts = false;
+            foreach (Excel.Worksheet ws in PVCalWorkbook.Sheets)
+            {
+                if (ws != ActiveCalWorksheet)
+                {
+                    ws.Delete();
+                }
+            }
+            ExcelApp.DisplayAlerts = true;
+            // Build the path and file name and save:
+            string xlsxFileName = Path.ChangeExtension(PVLFileName, ".xlsx");
+            PVCalWorkbook.SaveAs(Path.Combine(PVLFilePath, Path.Combine(PVLFilePath, xlsxFileName)));
+            // Close workbook and re-open the original:
+            PVCalWorkbook.Close();
+            string wbPath = Path.Combine(DataPath, PVCalFileName);
+            PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
+            //int n = ExcelApp.Workbooks.Count;     // Test code
+
         }
 
         #endregion Form level event handlers

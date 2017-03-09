@@ -78,7 +78,7 @@
     <EmbeddedResource Include="TTLCalibMain.resx">
       <DependentUpon>TTLCalibMain.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Data\PV Cal.xlsx" />
+    <None Include="Data\PV Cal Backup.xlsx" />
     <None Include="Data\PV3 Adult Cal R4.xlsx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
