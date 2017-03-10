@@ -341,8 +341,9 @@ namespace MIITTLCalibration
             PVCalWorkbook.SaveAs(Path.Combine(PVLFilePath, Path.Combine(PVLFilePath, xlsxFileName)));
             // Close workbook and re-open the original:
             PVCalWorkbook.Close();
-            string wbPath = Path.Combine(DataPath, PVCalFileName);
-            PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
+            OpenPVCalWorkbook();
+            //string wbPath = Path.Combine(DataPath, PVCalFileName);
+            //PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
             //int n = ExcelApp.Workbooks.Count;     // Test code
 
         }
@@ -377,43 +378,56 @@ namespace MIITTLCalibration
                 }
 
                 //MS Excel is started; open the PV Cal workbook
-                try
-                {
-                    string wbPath = Path.Combine(DataPath, PVCalFileName);
-                    PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Microsoft Excel error");
-                    PVCalWorkbook = null;
-                    if (ExcelApp != null)
-                    {
-                        ExcelApp.Quit();
-                        ExcelApp = null;
-                    }
-                    ExcelOK = false;
-                    return;
-                }
+                OpenPVCalWorkbook();
 
-                //The PV Cal workbook is open; load the worksheets associated with each lung model & type
-                try
-                {
-                    SL0CalWorksheet = PVCalWorkbook.Sheets[1];
-                    AIICalWorksheet = PVCalWorkbook.Sheets[2];
-                    AIACalWorksheet = PVCalWorkbook.Sheets[3];
-                    DALCalWorksheet = PVCalWorkbook.Sheets[4];
-                    DARCalWorksheet = PVCalWorkbook.Sheets[5];
+            }
+        }
 
-                    ActiveCalWorksheet = SL0CalWorksheet;
+        private void OpenPVCalWorkbook()
+        {
+            // TODO: Check for existance of PVCal.xlsx at the proper location; allow user to browse
+            //to it before opening if not found:
+            string wbPath = Path.Combine(DataPath, PVCalFileName);
 
-                    ExcelOK = true;
-                }
-                catch (Exception ex)
+            
+            try
+            {
+                PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Microsoft Excel error");
+                PVCalWorkbook = null;
+                if (ExcelApp != null)
                 {
-                    MessageBox.Show(ex.Message, "Microsoft Excel error");
-                    ExcelOK = false;
-                    return;
+                    ExcelApp.Quit();
+                    ExcelApp = null;
                 }
+                ExcelOK = false;
+                return;
+            }
+            
+            //The PV Cal workbook is open; load the worksheets associated with each lung model & type
+            try
+            {
+                SL0CalWorksheet = PVCalWorkbook.Sheets[1];
+                AIICalWorksheet = PVCalWorkbook.Sheets[2];
+                AIACalWorksheet = PVCalWorkbook.Sheets[3];
+                DALCalWorksheet = PVCalWorkbook.Sheets[4];
+                DARCalWorksheet = PVCalWorkbook.Sheets[5];
+
+                // TODO: Select active worksheet based in lung type radio button states
+                ActiveCalWorksheet = SL0CalWorksheet;
+
+
+
+                ExcelOK = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Microsoft Excel error");
+                ExcelOK = false;
+                return;
             }
         }
 
