@@ -28,10 +28,5 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
-	<ItemGroup>
-		<ProjectReference Include="..\MIITTLCalibration\MIITTLCalibration.csproj">
-			<Name>MIITTLCalibration</Name>
-			<Project>{493AA29B-96E3-4149-9373-C33B0E4349A5}</Project>
-		</ProjectReference>
-	</ItemGroup>
+	<ItemGroup/>
 </Project>

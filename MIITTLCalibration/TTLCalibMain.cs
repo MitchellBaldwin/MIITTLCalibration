@@ -37,6 +37,13 @@ namespace MIITTLCalibration
         private TextBox[] pipTextBoxes = new TextBox[10];
         private Label[] minPipDisplayLabels = new Label[10];
 
+        private Boolean appIsClosing = false;
+        public Boolean AppIsClosing
+        {
+            get { return appIsClosing; }
+            set { appIsClosing = value; }
+        }
+        
         private string dataPath = Path.Combine(Application.StartupPath, "Data");
         public string DataPath
         {
@@ -138,6 +145,8 @@ namespace MIITTLCalibration
 
             InitializeExcelWorksheets();
 
+            PVCalWorkbook.BeforeClose += PVCalWorkbookBeforeClose;
+
             if (ExcelOK)
             {
                 // Read and display compliance setting values and Pip limits
@@ -157,12 +166,31 @@ namespace MIITTLCalibration
 
             // Close splash screen
             lwss.Close();
+
+            // Check whether PVL folder location has been set;
+            // if it has, then load it
+            // if it has not, then initialize it to the default location
+            string tempPVLPath = MIITTLCalibration.Properties.Settings.Default.PVLFolder;
+            if (tempPVLPath == "none")
+            {
+                MIITTLCalibration.Properties.Settings.Default.PVLFolder = PVLFilePath;
+                MIITTLCalibration.Properties.Settings.Default.Save();
+            }
+            else
+            {
+                PVLFilePath = MIITTLCalibration.Properties.Settings.Default.PVLFolder;
+                if (ExcelOK)
+                {
+                    buildPVLFileButton.Enabled = true;
+                }
+            }
         }
 
         private void TTLCalibMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ExcelApp != null)
             {
+                AppIsClosing = true;
                 // Close the PV Cal workbook - do NOT save changes
                 // Check whether Close(true) saves the file - YES
                 PVCalWorkbook.Close(false);
@@ -191,7 +219,7 @@ namespace MIITTLCalibration
                 SNPrefix = ltrb.Tag.ToString();
                 snPrefixDisplayLabel.Text = SNPrefix;
                 
-                // Select worksheet associated with the selected lung modwl & type
+                // Select worksheet associated with the selected lung model & type
                 if (ltrb == singleRadioButton)
                 {
                     ActiveCalWorksheet = SL0CalWorksheet;
@@ -338,7 +366,7 @@ namespace MIITTLCalibration
             ExcelApp.DisplayAlerts = true;
             // Build the path and file name and save:
             string xlsxFileName = Path.ChangeExtension(PVLFileName, ".xlsx");
-            PVCalWorkbook.SaveAs(Path.Combine(PVLFilePath, Path.Combine(PVLFilePath, xlsxFileName)));
+            PVCalWorkbook.SaveAs(Path.Combine(PVLFilePath, xlsxFileName));
             // Close workbook and re-open the original:
             PVCalWorkbook.Close();
             OpenPVCalWorkbook();
@@ -346,6 +374,30 @@ namespace MIITTLCalibration
             //PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
             //int n = ExcelApp.Workbooks.Count;     // Test code
 
+        }
+
+        private void selectOutputFolderButton_Click(object sender, EventArgs e)
+        {
+            selectOutputFolderDialog.SelectedPath = PVLFilePath;
+            DialogResult result = selectOutputFolderDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                if (IsDirectoryWritable(selectOutputFolderDialog.SelectedPath))
+                {
+                    PVLFilePath = selectOutputFolderDialog.SelectedPath;
+                    MIITTLCalibration.Properties.Settings.Default.PVLFolder = PVLFilePath;
+                    MIITTLCalibration.Properties.Settings.Default.Save();
+                    if (ExcelOK)
+                    {
+                        buildPVLFileButton.Enabled = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Operating System denied write access to the selected folder", "Access Denied");
+                    buildPVLFileButton.Enabled = false;
+                }
+            }
         }
 
         #endregion Form level event handlers
@@ -385,14 +437,23 @@ namespace MIITTLCalibration
 
         private void OpenPVCalWorkbook()
         {
-            // TODO: Check for existance of PVCal.xlsx at the proper location; allow user to browse
+            // Check for existance of PVCal.xlsx at the proper location; allow user to browse
             //to it before opening if not found:
-            string wbPath = Path.Combine(DataPath, PVCalFileName);
+            string wpPathAndFileName = Path.Combine(DataPath, PVCalFileName);
+            if (!File.Exists(wpPathAndFileName))
+            {
+                pvcwbFileDialog.InitialDirectory = DataPath;
+                pvcwbFileDialog.FileName = PVCalFileName;
+                pvcwbFileDialog.ShowDialog();
 
-            
+                wpPathAndFileName = pvcwbFileDialog.FileName;
+                PVCalFileName = Path.GetFileName(wpPathAndFileName);
+                DataPath = Path.GetDirectoryName(wpPathAndFileName);
+            }
+
             try
             {
-                PVCalWorkbook = ExcelApp.Workbooks.Open(wbPath);
+                PVCalWorkbook = ExcelApp.Workbooks.Open(wpPathAndFileName);
             }
             catch (Exception ex)
             {
@@ -416,10 +477,8 @@ namespace MIITTLCalibration
                 DALCalWorksheet = PVCalWorkbook.Sheets[4];
                 DARCalWorksheet = PVCalWorkbook.Sheets[5];
 
-                // TODO: Select active worksheet based in lung type radio button states
-                ActiveCalWorksheet = SL0CalWorksheet;
-
-
+                // Select active worksheet based in lung type radio button states
+                SetActiveCalWorksheet();
 
                 ExcelOK = true;
             }
@@ -428,6 +487,104 @@ namespace MIITTLCalibration
                 MessageBox.Show(ex.Message, "Microsoft Excel error");
                 ExcelOK = false;
                 return;
+            }
+        }
+
+        private void PVCalWorkbookBeforeClose(ref bool Cancel)
+        {
+            if (AppIsClosing)
+            {
+                Cancel = false;
+            }
+            else
+            {
+                Cancel = true;
+            }
+        }
+        
+        private void SetActiveCalWorksheet()
+        {
+            RadioButton selectedLungTypeRadioButton = singleRadioButton;
+            foreach (RadioButton rb in selectLungModelTypeGroupBox.Controls)
+            {
+                if (rb.Checked)
+                {
+                    selectedLungTypeRadioButton = rb;
+                }
+            }
+            // Select worksheet associated with the selected lung model & type
+            if (selectedLungTypeRadioButton == singleRadioButton)
+            {
+                ActiveCalWorksheet = SL0CalWorksheet;
+            }
+            else if (selectedLungTypeRadioButton == aiInfantRadioButton)
+            {
+                ActiveCalWorksheet = AIICalWorksheet;
+            }
+            else if (selectedLungTypeRadioButton == aiAdultRadioButton)
+            {
+                ActiveCalWorksheet = AIACalWorksheet;
+            }
+            else if (selectedLungTypeRadioButton == daLeftRadioButton)
+            {
+                ActiveCalWorksheet = DALCalWorksheet;
+            }
+            else if (selectedLungTypeRadioButton == daRightRadioButton)
+            {
+                ActiveCalWorksheet = DARCalWorksheet;
+            }
+                
+            // Set compliance setting labels and controls as appropriate for infant or adult lung:
+            System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
+            if (ActiveCalWorksheet == AIICalWorksheet)
+            {
+                for (int i = 0; i < 10; ++i)
+                {
+                    cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.000");
+                }
+                c70Label.Visible = false;
+                c70MaxPipDisplayLabel.Visible = false;
+                c70PipTextBox.Visible = false;
+                c70MinPipDisplayLabel.Visible = false;
+                c90Label.Visible = false;
+                c90MaxPipDisplayLabel.Visible = false;
+                c90PipTextBox.Visible = false;
+                c90MinPipDisplayLabel.Visible = false;
+            }
+            else
+            {
+                for (int i = 0; i < 10; ++i)
+                {
+                    cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                }
+                c70Label.Visible = true;
+                c70MaxPipDisplayLabel.Visible = true;
+                c70PipTextBox.Visible = true;
+                c70MinPipDisplayLabel.Visible = true;
+                c90Label.Visible = true;
+                c90MaxPipDisplayLabel.Visible = true;
+                c90PipTextBox.Visible = true;
+                c90MinPipDisplayLabel.Visible = true;
+            }
+            
+            buildPVLFileButton.Text = "Build " + PVLFileName;
+        }
+        
+        public bool IsDirectoryWritable(string dirPath, bool throwIfFails = false)
+        {
+            try
+            {
+                using (FileStream fs = File.Create(Path.Combine(dirPath, Path.GetRandomFileName()), 1, FileOptions.DeleteOnClose))
+                {
+                }
+                return true;
+            }
+            catch
+            {
+                if (throwIfFails)
+                    throw;
+                else
+                    return false;
             }
         }
 

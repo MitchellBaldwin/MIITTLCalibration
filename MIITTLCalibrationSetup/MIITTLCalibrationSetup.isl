@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject></subject>
+		<subject>MIITTLCalibration</subject>
 		<author>##ID_STRING3##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -341,7 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{B2A9201D-2C8D-4B11-941E-40B0396ED2F5}</td><td>DATA</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{0229CEB8-2C75-40E5-B4EF-8712B6428AD7}</td><td>PVL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>MIITTLCalibration.Primary_output</td><td>{36EC9592-CB34-4014-B388-EC6B14773181}</td><td>MICHIGAN_INSTRUMENTS__INC.</td><td>2</td><td/><td>miittlcalibration.primary_ou</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{8F26E845-3F05-4987-9982-CA6ADFA72157}</td><td>WindowsVolume</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>MIITTLCalibration.exe</td><td>{E361BA55-42AA-4C2D-B747-854A0186F46B}</td><td>INSTALLDIR</td><td>2</td><td/><td>miittlcalibration.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1054,10 +1054,10 @@
 		<row><td>DATA</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
-		<row><td>INSTALLDIR</td><td>MIITTLCalibration.Primary_output</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>INSTALLDIR</td><td>MIITTLCalibration.exe</td></row>
-		<row><td>MICHIGAN_INSTRUMENTS__INC.</td><td>MIITTLCalibration.Primary_output</td></row>
 		<row><td>PVL</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>WindowsVolume</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1154,8 +1154,7 @@
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
 		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
-		<row><td>MICHIGAN_INSTRUMENTS__INC.</td><td>ProgramFilesFolder</td><td>MICHIG~1|Michigan Instruments, Inc.</td><td/><td>0</td><td/></row>
-		<row><td>MY_PRODUCT_NAME</td><td>MICHIGAN_INSTRUMENTS__INC.</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
+		<row><td>MY_PRODUCT_NAME</td><td>ProgramFilesFolder</td><td>MIITTL~1|MIITTLCalibration</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>PVL</td><td>INSTALLDIR</td><td>PVL</td><td/><td>0</td><td/></row>
@@ -1873,7 +1872,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
-		<row><td>AlwaysInstall</td><td>MIITTLCalibration.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>MIITTLCalibration.exe</td></row>
 	</table>
 
@@ -1889,9 +1888,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>aii0000.pvl</td><td>ISX_DEFAULTCOMPONENT1</td><td>AII0000.pvl</td><td>0</td><td/><td/><td/><td>1</td><td>C:\git\MIITTLCalibration\MIITTLCalibration\bin\Debug\PVL\AII0000.pvl</td><td>1</td><td/></row>
 		<row><td>miittlcalibration.exe</td><td>MIITTLCalibration.exe</td><td>MIITTL~1.EXE|MIITTLCalibration.exe</td><td>0</td><td/><td/><td/><td>1</td><td>C:\git\MIITTLCalibration\MIITTLCalibration\bin\Debug\MIITTLCalibration.exe</td><td>1</td><td/></row>
-		<row><td>miittlcalibration.primary_ou</td><td>MIITTLCalibration.Primary_output</td><td>MIITTLCalibration.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;MIITTLCalibration&gt;|Built</td><td>3</td><td/></row>
 		<row><td>pv_cal.xlsx</td><td>ISX_DEFAULTCOMPONENT</td><td>PVCAL~1.XLS|PV Cal.xlsx</td><td>0</td><td/><td/><td/><td>1</td><td>C:\git\MIITTLCalibration\MIITTLCalibration\bin\Debug\Data\PV Cal.xlsx</td><td>1</td><td/></row>
 		<row><td>sl00000.pvl</td><td>ISX_DEFAULTCOMPONENT1</td><td>SL00000.pvl</td><td>0</td><td/><td/><td/><td>1</td><td>C:\git\MIITTLCalibration\MIITTLCalibration\bin\Debug\PVL\SL00000.pvl</td><td>1</td><td/></row>
 	</table>
@@ -2037,7 +2034,7 @@
 		<col def="S0">Miscellaneous</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_3D8266EF_362E_4BFF_B10B_D8724D754D9B_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_4CE57123_5398_4392_9CD4_B4B561DF87E3_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>MIITTLCalibration.Primary_output</td><td/><td/><td>_A821E1D1_A064_4941_92F2_5187F82FB67B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_0FF3AEC4_40E8_4D19_B5C6_D78D7E496C00_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>MIITTLCalibration.exe</td><td/><td/><td>_8D8298DF_9EA6_45CF_8EE9_81290C565EED_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2627,7 +2624,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Michigan Instruments, Inc.</td><td>0</td><td/><td>1101356016</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Michigan Instruments, Inc.</td><td>0</td><td/><td>1504038608</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>1101362064</td></row>
@@ -3729,8 +3726,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>1101362064</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.michiganinstruments.com</td><td>0</td><td/><td>1101335568</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>Michigan Instruments, Inc.</td><td>0</td><td/><td>1101356016</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.MichiganInstruments,Inc..com</td><td>0</td><td/><td>1504038608</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Michigan Instruments, Inc.</td><td>0</td><td/><td>1504038608</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>LAUNCH~1.EXE|Launch MIITTLCalibration.exe</td><td>0</td><td/><td>1101333712</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1101362064</td></row>
 	</table>
@@ -3980,7 +3977,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{F64A61AA-212E-481B-9193-34813563A426}</td></row>
 		<row><td>ISUSSignature</td><td>{4BECB85E-CE09-4748-AE7E-1C69468096A5}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewAppFiles</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewAppFiles,viewISToday</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4353,7 +4350,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{D7DC1F09-8F42-4FE2-85E4-E10AA1B37F59}</td><td/></row>
-		<row><td>ProductName</td><td>MIITTLCalibrationSetup</td><td/></row>
+		<row><td>ProductName</td><td>MIITTLCalibration</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>

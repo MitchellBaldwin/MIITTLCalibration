@@ -93,6 +93,9 @@
             this.buildPVLFileButton = new System.Windows.Forms.Button();
             this.showDataNormalizationFileButtonheckBox = new System.Windows.Forms.CheckBox();
             this.pvlFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.pvcwbFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.selectOutputFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.selectOutputFolderButton = new System.Windows.Forms.Button();
             this.selectLungModelTypeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -734,13 +737,15 @@
             // 
             // buildPVLFileButton
             // 
+            this.buildPVLFileButton.BackColor = System.Drawing.SystemColors.Control;
+            this.buildPVLFileButton.Enabled = false;
             this.buildPVLFileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buildPVLFileButton.Location = new System.Drawing.Point(1038, 490);
             this.buildPVLFileButton.Name = "buildPVLFileButton";
             this.buildPVLFileButton.Size = new System.Drawing.Size(311, 68);
             this.buildPVLFileButton.TabIndex = 58;
             this.buildPVLFileButton.Text = "Build SL00000.pvl";
-            this.buildPVLFileButton.UseVisualStyleBackColor = true;
+            this.buildPVLFileButton.UseVisualStyleBackColor = false;
             this.buildPVLFileButton.Click += new System.EventHandler(this.buildPVLFileButton_Click);
             // 
             // showDataNormalizationFileButtonheckBox
@@ -755,12 +760,31 @@
             this.showDataNormalizationFileButtonheckBox.UseVisualStyleBackColor = true;
             this.showDataNormalizationFileButtonheckBox.CheckedChanged += new System.EventHandler(this.showDataNormalizationFileButtonheckBox_CheckedChanged);
             // 
+            // pvcwbFileDialog
+            // 
+            this.pvcwbFileDialog.DefaultExt = "xlsx";
+            this.pvcwbFileDialog.Filter = "Excel files|*.xlsx";
+            this.pvcwbFileDialog.Title = "Find PV Cal workbook";
+            // 
+            // selectOutputFolderButton
+            // 
+            this.selectOutputFolderButton.BackColor = System.Drawing.SystemColors.Control;
+            this.selectOutputFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectOutputFolderButton.Location = new System.Drawing.Point(708, 490);
+            this.selectOutputFolderButton.Name = "selectOutputFolderButton";
+            this.selectOutputFolderButton.Size = new System.Drawing.Size(311, 68);
+            this.selectOutputFolderButton.TabIndex = 60;
+            this.selectOutputFolderButton.Text = "Select Output Folder";
+            this.selectOutputFolderButton.UseVisualStyleBackColor = false;
+            this.selectOutputFolderButton.Click += new System.EventHandler(this.selectOutputFolderButton_Click);
+            // 
             // TTLCalibMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1443, 609);
+            this.Controls.Add(this.selectOutputFolderButton);
             this.Controls.Add(this.showDataNormalizationFileButtonheckBox);
             this.Controls.Add(this.buildPVLFileButton);
             this.Controls.Add(this.snPrefixDisplayLabel);
@@ -899,5 +923,8 @@
         private System.Windows.Forms.Button buildPVLFileButton;
         private System.Windows.Forms.CheckBox showDataNormalizationFileButtonheckBox;
         private System.Windows.Forms.OpenFileDialog pvlFileDialog;
+        private System.Windows.Forms.OpenFileDialog pvcwbFileDialog;
+        private System.Windows.Forms.FolderBrowserDialog selectOutputFolderDialog;
+        private System.Windows.Forms.Button selectOutputFolderButton;
     }
 }

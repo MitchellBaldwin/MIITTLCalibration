@@ -22,5 +22,17 @@ namespace MIITTLCalibration.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("none")]
+        public string PVLFolder {
+            get {
+                return ((string)(this["PVLFolder"]));
+            }
+            set {
+                this["PVLFolder"] = value;
+            }
+        }
     }
 }
