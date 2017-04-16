@@ -207,6 +207,8 @@ namespace MIITTLCalibration
             else
             {
                 // Re-initialize whatever aspects of Excel and PV Cal.xlsx found missing
+                // No longer necessary - implemented BeforeClose event handler on workbook to prevent 
+                //the user closing Excel outside the program
 
             }
         }
@@ -309,8 +311,8 @@ namespace MIITTLCalibration
             for (int j=0; j<10; ++j)
             {
                 //Excel.Range ccRange = ActiveCalWorksheet.get_Range("Y22", "Y25");
-                Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.Cells[j * 17 + 22, 25];
-                Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.Cells[j * 17 + 25, 25];
+                Excel.Range startCell = (Excel.Range)ActiveCalWorksheet.Cells[j * 17 + 30, 25];
+                Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.Cells[j * 17 + 33, 25];
                 Excel.Range ccRange = ActiveCalWorksheet.Range[startCell, endCell];
                 for (int i = 0; i < 4; ++i)
                 {
@@ -410,7 +412,7 @@ namespace MIITTLCalibration
             {
                 //MS Excel is not installed
                 ExcelOK = false;
-                MessageBox.Show("MS Excel is not installed on this computer", "MS Excel error");
+                MessageBox.Show("Microsoft Excel is not installed on this computer", "Microsoft Excel error");
                 return;
             }
             else
