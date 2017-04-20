@@ -147,23 +147,6 @@ namespace MIITTLCalibration
 
             PVCalWorkbook.BeforeClose += PVCalWorkbookBeforeClose;
 
-            if (ExcelOK)
-            {
-                // Read and display compliance setting values and Pip limits
-                // (may move to a helper function - same functionality needed for changing lung model & type)
-                System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
-                System.Array maxPipVals = ActiveCalWorksheet.get_Range("C9", "L9").Cells.Value;
-                System.Array nomPipVals = ActiveCalWorksheet.get_Range("C8", "L8").Cells.Value;
-                System.Array minPipVals = ActiveCalWorksheet.get_Range("C11", "L11").Cells.Value;
-                for (int i=0; i<10; ++i)
-                {
-                    cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
-                    maxPipDisplayLabels[i].Text = ((double)maxPipVals.GetValue(1, i + 1)).ToString("0.00");
-                    pipTextBoxes[i].Text = ((double)nomPipVals.GetValue(1, i + 1)).ToString("0.00");
-                    minPipDisplayLabels[i].Text = ((double)minPipVals.GetValue(1, i + 1)).ToString("0.00");
-                }
-            }
-
             // Close splash screen
             lwss.Close();
 
@@ -198,11 +181,11 @@ namespace MIITTLCalibration
             }
         }
 
-        private void showDataNormalizationFileButtonheckBox_CheckedChanged(object sender, EventArgs e)
+        private void showDataNormalizationFileButtonCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (ExcelOK)
             {
-                ExcelApp.Visible = showDataNormalizationFileButtonheckBox.Checked;
+                ExcelApp.Visible = showDataNormalizationFileButtonCheckBox.Checked;
             }
             else
             {
@@ -220,64 +203,71 @@ namespace MIITTLCalibration
             {
                 SNPrefix = ltrb.Tag.ToString();
                 snPrefixDisplayLabel.Text = SNPrefix;
-                
-                // Select worksheet associated with the selected lung model & type
-                if (ltrb == singleRadioButton)
-                {
-                    ActiveCalWorksheet = SL0CalWorksheet;
-                }
-                else if (ltrb == aiInfantRadioButton)
-                {
-                    ActiveCalWorksheet = AIICalWorksheet;
-                }
-                else if (ltrb == aiAdultRadioButton)
-                {
-                    ActiveCalWorksheet = AIACalWorksheet;
-                }
-                else if (ltrb == daLeftRadioButton)
-                {
-                    ActiveCalWorksheet = DALCalWorksheet;
-                }
-                else if (ltrb == daRightRadioButton)
-                {
-                    ActiveCalWorksheet = DARCalWorksheet;
-                }
-                
-                // Set compliance setting labels and controls as appropriate for infant or adult lung:
-                System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
-                if (ActiveCalWorksheet == AIICalWorksheet)
-                {
-                    for (int i = 0; i < 10; ++i)
-                    {
-                        cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.000");
-                    }
-                    c70Label.Visible = false;
-                    c70MaxPipDisplayLabel.Visible = false;
-                    c70PipTextBox.Visible = false;
-                    c70MinPipDisplayLabel.Visible = false;
-                    c90Label.Visible = false;
-                    c90MaxPipDisplayLabel.Visible = false;
-                    c90PipTextBox.Visible = false;
-                    c90MinPipDisplayLabel.Visible = false;
-                }
-                else
-                {
-                    for (int i = 0; i < 10; ++i)
-                    {
-                        cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
-                    }
-                    c70Label.Visible = true;
-                    c70MaxPipDisplayLabel.Visible = true;
-                    c70PipTextBox.Visible = true;
-                    c70MinPipDisplayLabel.Visible = true;
-                    c90Label.Visible = true;
-                    c90MaxPipDisplayLabel.Visible = true;
-                    c90PipTextBox.Visible = true;
-                    c90MinPipDisplayLabel.Visible = true;
-                }
-            }
-            buildPVLFileButton.Text = "Build " + PVLFileName;
 
+                // Use helper function to initialize text on controls:
+                SetActiveCalWorksheet();
+
+                #region Obsolete code
+                //    // Select worksheet associated with the selected lung model & type
+                //    if (ltrb == singleRadioButton)
+                //    {
+                //        ActiveCalWorksheet = SL0CalWorksheet;
+                //    }
+                //    else if (ltrb == aiInfantRadioButton)
+                //    {
+                //        ActiveCalWorksheet = AIICalWorksheet;
+                //    }
+                //    else if (ltrb == aiAdultRadioButton)
+                //    {
+                //        ActiveCalWorksheet = AIACalWorksheet;
+                //    }
+                //    else if (ltrb == daLeftRadioButton)
+                //    {
+                //        ActiveCalWorksheet = DALCalWorksheet;
+                //    }
+                //    else if (ltrb == daRightRadioButton)
+                //    {
+                //        ActiveCalWorksheet = DARCalWorksheet;
+                //    }
+
+                //    // Set compliance setting labels and controls as appropriate for infant or adult lung:
+                //    System.Array cSettingVals = ActiveCalWorksheet.get_Range("C7", "L7").Cells.Value;
+                //    if (ActiveCalWorksheet == AIICalWorksheet)
+                //    {
+                //        for (int i = 0; i < 10; ++i)
+                //        {
+                //            cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.000");
+                //        }
+                //        // c70 & c90 data points no longer used:
+                //        //c70Label.Visible = false;
+                //        //c70MaxPipDisplayLabel.Visible = false;
+                //        //c70PipTextBox.Visible = false;
+                //        //c70MinPipDisplayLabel.Visible = false;
+                //        //c90Label.Visible = false;
+                //        //c90MaxPipDisplayLabel.Visible = false;
+                //        //c90PipTextBox.Visible = false;
+                //        //c90MinPipDisplayLabel.Visible = false;
+                //    }
+                //    else
+                //    {
+                //        for (int i = 0; i < 10; ++i)
+                //        {
+                //            cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                //        }
+                //        // c70 & c90 data points no longer used:
+                //        //c70Label.Visible = true;
+                //        //c70MaxPipDisplayLabel.Visible = true;
+                //        //c70PipTextBox.Visible = true;
+                //        //c70MinPipDisplayLabel.Visible = true;
+                //        //c90Label.Visible = true;
+                //        //c90MaxPipDisplayLabel.Visible = true;
+                //        //c90PipTextBox.Visible = true;
+                //        //c90MinPipDisplayLabel.Visible = true;
+                //    }
+                #endregion
+            }
+            //buildPVLFileButton.Text = "Build " + PVLFileName;
+            
         }
 
         private void serialNumberTextBox_TextChanged(object sender, EventArgs e)
@@ -303,10 +293,29 @@ namespace MIITTLCalibration
             //Excel.Range endCell = (Excel.Range)ActiveCalWorksheet.get_Range("L10");
             //Excel.Range pipRange = ActiveCalWorksheet.Range[startCell, endCell];
             
-            // Write the entered values for Pip measurements to the PV Cal worksheet:
-            Excel.Range pipRange = ActiveCalWorksheet.get_Range("C10", "L10");
+            // Write the entered values for Pip measurements @ 1000 mL (100 mL for infant lungs) to the PV Cal worksheet:
+            Excel.Range pipRange = ActiveCalWorksheet.get_Range("C30", "L30");
             pipRange.Value2 = pipVals;
 
+            // Write the entered values for Pip measurements at other injection volumes to the active worksheet:
+            ActiveCalWorksheet.get_Range("C21").Value2 = Convert.ToDouble(c10Pip100TextBox.Text);
+            ActiveCalWorksheet.get_Range("C25").Value2 = Convert.ToDouble(c10Pip500TextBox.Text);
+
+            ActiveCalWorksheet.get_Range("D21").Value2 = Convert.ToDouble(c20Pip100TextBox.Text);
+            ActiveCalWorksheet.get_Range("D25").Value2 = Convert.ToDouble(c20Pip500TextBox.Text);
+            ActiveCalWorksheet.get_Range("D35").Value2 = Convert.ToDouble(c20Pip1500TextBox.Text);
+            ActiveCalWorksheet.get_Range("D40").Value2 = Convert.ToDouble(c20Pip2000TextBox.Text);
+
+            ActiveCalWorksheet.get_Range("G21").Value2 = Convert.ToDouble(c50Pip100TextBox.Text);
+            ActiveCalWorksheet.get_Range("G25").Value2 = Convert.ToDouble(c50Pip500TextBox.Text);
+            ActiveCalWorksheet.get_Range("G35").Value2 = Convert.ToDouble(c50Pip1500TextBox.Text);
+            ActiveCalWorksheet.get_Range("G40").Value2 = Convert.ToDouble(c50Pip2000TextBox.Text);
+
+            ActiveCalWorksheet.get_Range("L21").Value2 = Convert.ToDouble(c100Pip100TextBox.Text);
+            ActiveCalWorksheet.get_Range("L25").Value2 = Convert.ToDouble(c100Pip500TextBox.Text);
+            ActiveCalWorksheet.get_Range("L35").Value2 = Convert.ToDouble(c100Pip1500TextBox.Text);
+            ActiveCalWorksheet.get_Range("L40").Value2 = Convert.ToDouble(c100Pip2000TextBox.Text);
+            
             // Read resultant compliance coefficient values as strings and write to a new PVL file
             for (int j=0; j<10; ++j)
             {
@@ -479,10 +488,11 @@ namespace MIITTLCalibration
                 DALCalWorksheet = PVCalWorkbook.Sheets[4];
                 DARCalWorksheet = PVCalWorkbook.Sheets[5];
 
+                ExcelOK = true;
+
                 // Select active worksheet based in lung type radio button states
                 SetActiveCalWorksheet();
 
-                ExcelOK = true;
             }
             catch (Exception ex)
             {
@@ -543,33 +553,90 @@ namespace MIITTLCalibration
                 for (int i = 0; i < 10; ++i)
                 {
                     cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.000");
+                    measuredPip100Label.Text = "Measured Pip @ 10 mL:";
+                    measuredPip500Label.Text = "Measured Pip @ 50 mL:";
+                    maxPipLabel .Text = "Maximum Pip @ 100 mL:";
+                    measuredPipLabel.Text = "Measured Pip @ 100 mL:";
+                    minPipLabel.Text = "Minimum Pip @ 100 mL:";
+                    measuredPip1500Label.Text = "Measured Pip @ 150 mL:";
+                    measuredPip2000Label.Text = "Measured Pip @ 200 mL:";
                 }
-                c70Label.Visible = false;
-                c70MaxPipDisplayLabel.Visible = false;
-                c70PipTextBox.Visible = false;
-                c70MinPipDisplayLabel.Visible = false;
-                c90Label.Visible = false;
-                c90MaxPipDisplayLabel.Visible = false;
-                c90PipTextBox.Visible = false;
-                c90MinPipDisplayLabel.Visible = false;
+                #region Obsolete code
+		        // c70 & c90 data points no longer used:
+                //c70Label.Visible = false;
+                //c70MaxPipDisplayLabel.Visible = false;
+                //c70PipTextBox.Visible = false;
+                //c70MinPipDisplayLabel.Visible = false;
+                //c90Label.Visible = false;
+                //c90MaxPipDisplayLabel.Visible = false;
+                //c90PipTextBox.Visible = false;
+                //c90MinPipDisplayLabel.Visible = false;
+ 
+	            #endregion
             }
             else
             {
                 for (int i = 0; i < 10; ++i)
                 {
                     cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                    measuredPip100Label.Text = "Measured Pip @ 100 mL:";
+                    measuredPip500Label.Text = "Measured Pip @ 500 mL:";
+                    maxPipLabel.Text = "Maximum Pip @ 1000 mL:";
+                    measuredPipLabel.Text = "Measured Pip @ 1000 mL:";
+                    minPipLabel.Text = "Minimum Pip @ 1000 mL:";
+                    measuredPip1500Label.Text = "Measured Pip @ 1500 mL:";
+                    measuredPip2000Label.Text = "Measured Pip @ 2000 mL:";
                 }
-                c70Label.Visible = true;
-                c70MaxPipDisplayLabel.Visible = true;
-                c70PipTextBox.Visible = true;
-                c70MinPipDisplayLabel.Visible = true;
-                c90Label.Visible = true;
-                c90MaxPipDisplayLabel.Visible = true;
-                c90PipTextBox.Visible = true;
-                c90MinPipDisplayLabel.Visible = true;
+                #region Obsolete code
+		        // c70 & c90 data points no longer used:
+                //c70Label.Visible = true;
+                //c70MaxPipDisplayLabel.Visible = true;
+                //c70PipTextBox.Visible = true;
+                //c70MinPipDisplayLabel.Visible = true;
+                //c90Label.Visible = true;
+                //c90MaxPipDisplayLabel.Visible = true;
+                //c90PipTextBox.Visible = true;
+                //c90MinPipDisplayLabel.Visible = true;
+ 
+	            #endregion            
             }
             
             buildPVLFileButton.Text = "Build " + PVLFileName;
+
+            if (ExcelOK)
+            {
+                // Read and display compliance setting values and Pip limits:
+                System.Array maxPipVals = ActiveCalWorksheet.get_Range("C9", "L9").Cells.Value;
+                System.Array nomPipVals = ActiveCalWorksheet.get_Range("C8", "L8").Cells.Value;
+                System.Array minPipVals = ActiveCalWorksheet.get_Range("C11", "L11").Cells.Value;
+                for (int i = 0; i < 10; ++i)
+                {
+                    //cSettingDisplayLabels[i].Text = ((double)cSettingVals.GetValue(1, i + 1)).ToString("0.00");
+                    maxPipDisplayLabels[i].Text = ((double)maxPipVals.GetValue(1, i + 1)).ToString("0.00");
+                    pipTextBoxes[i].Text = ((double)nomPipVals.GetValue(1, i + 1)).ToString("0.00");
+                    minPipDisplayLabels[i].Text = ((double)minPipVals.GetValue(1, i + 1)).ToString("0.00");
+                }
+
+                c10Pip100TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("C21").Cells.Value2)).ToString("0.00");
+                c10Pip500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("C25").Cells.Value2)).ToString("0.00");
+
+                c20Pip100TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("D21").Cells.Value2)).ToString("0.00");
+                c20Pip500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("D25").Cells.Value2)).ToString("0.00");
+                c20Pip1500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("D35").Cells.Value2)).ToString("0.00");
+                c20Pip2000TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("D40").Cells.Value2)).ToString("0.00");
+
+                c50Pip100TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("G21").Cells.Value2)).ToString("0.00");
+                c50Pip500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("G25").Cells.Value2)).ToString("0.00");
+                c50Pip1500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("G35").Cells.Value2)).ToString("0.00");
+                c50Pip2000TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("G40").Cells.Value2)).ToString("0.00");
+
+                c100Pip100TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("L21").Cells.Value2)).ToString("0.00");
+                c100Pip500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("L25").Cells.Value2)).ToString("0.00");
+                c100Pip1500TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("L35").Cells.Value2)).ToString("0.00");
+                c100Pip2000TextBox.Text = ((double)(ActiveCalWorksheet.get_Range("L40").Cells.Value2)).ToString("0.00");
+
+            }
+
         }
         
         public bool IsDirectoryWritable(string dirPath, bool throwIfFails = false)

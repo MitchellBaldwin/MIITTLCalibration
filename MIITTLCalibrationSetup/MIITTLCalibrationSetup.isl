@@ -342,6 +342,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{B2A9201D-2C8D-4B11-941E-40B0396ED2F5}</td><td>DATA</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{0229CEB8-2C75-40E5-B4EF-8712B6428AD7}</td><td>PVL</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{8F26E845-3F05-4987-9982-CA6ADFA72157}</td><td>WindowsVolume</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{44D55426-C283-4DEF-BD2B-113CA2AD0E94}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>MIITTLCalibration.exe</td><td>{E361BA55-42AA-4C2D-B747-854A0186F46B}</td><td>INSTALLDIR</td><td>2</td><td/><td>miittlcalibration.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1055,6 +1056,7 @@
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>INSTALLDIR</td><td>MIITTLCalibration.exe</td></row>
 		<row><td>PVL</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>WindowsVolume</td><td>ISX_DEFAULTCOMPONENT2</td></row>
@@ -1873,6 +1875,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>MIITTLCalibration.exe</td></row>
 	</table>
 
@@ -2035,6 +2038,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_3D8266EF_362E_4BFF_B10B_D8724D754D9B_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_4CE57123_5398_4392_9CD4_B4B561DF87E3_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_0FF3AEC4_40E8_4D19_B5C6_D78D7E496C00_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_D13DDFA4_BD44_430C_B6E8_7469EA16720F_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>MIITTLCalibration.exe</td><td/><td/><td>_8D8298DF_9EA6_45CF_8EE9_81290C565EED_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -3977,7 +3981,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{F64A61AA-212E-481B-9193-34813563A426}</td></row>
 		<row><td>ISUSSignature</td><td>{4BECB85E-CE09-4748-AE7E-1C69468096A5}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewAppFiles,viewISToday</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewAppFiles,viewISToday,viewProject,viewUpgradePaths,viewUpdateService,viewRegistry,viewUI,viewTextMessages,viewCustomActions,viewSystemSearch,viewRelease</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
