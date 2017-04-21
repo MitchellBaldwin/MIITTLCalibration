@@ -142,7 +142,7 @@
             this.pBaroTextBox.Location = new System.Drawing.Point(295, 38);
             this.pBaroTextBox.Name = "pBaroTextBox";
             this.pBaroTextBox.Size = new System.Drawing.Size(100, 31);
-            this.pBaroTextBox.TabIndex = 2;
+            this.pBaroTextBox.TabIndex = 0;
             this.pBaroTextBox.Text = "29.92";
             this.pBaroTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -151,7 +151,7 @@
             this.gTempTextBox.Location = new System.Drawing.Point(295, 82);
             this.gTempTextBox.Name = "gTempTextBox";
             this.gTempTextBox.Size = new System.Drawing.Size(100, 31);
-            this.gTempTextBox.TabIndex = 5;
+            this.gTempTextBox.TabIndex = 1;
             this.gTempTextBox.Text = "20";
             this.gTempTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -180,7 +180,7 @@
             this.rHTextBox.Location = new System.Drawing.Point(295, 128);
             this.rHTextBox.Name = "rHTextBox";
             this.rHTextBox.Size = new System.Drawing.Size(100, 31);
-            this.rHTextBox.TabIndex = 8;
+            this.rHTextBox.TabIndex = 2;
             this.rHTextBox.Text = "50";
             this.rHTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -210,7 +210,7 @@
             this.c10PipTextBox.Location = new System.Drawing.Point(397, 377);
             this.c10PipTextBox.Name = "c10PipTextBox";
             this.c10PipTextBox.Size = new System.Drawing.Size(100, 31);
-            this.c10PipTextBox.TabIndex = 11;
+            this.c10PipTextBox.TabIndex = 13;
             this.c10PipTextBox.Text = "100.00";
             this.c10PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -270,7 +270,7 @@
             this.c20PipTextBox.Location = new System.Drawing.Point(503, 377);
             this.c20PipTextBox.Name = "c20PipTextBox";
             this.c20PipTextBox.Size = new System.Drawing.Size(100, 31);
-            this.c20PipTextBox.TabIndex = 15;
+            this.c20PipTextBox.TabIndex = 14;
             this.c20PipTextBox.Text = "50.00";
             this.c20PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -311,7 +311,7 @@
             this.c30PipTextBox.Location = new System.Drawing.Point(609, 377);
             this.c30PipTextBox.Name = "c30PipTextBox";
             this.c30PipTextBox.Size = new System.Drawing.Size(100, 31);
-            this.c30PipTextBox.TabIndex = 19;
+            this.c30PipTextBox.TabIndex = 13;
             this.c30PipTextBox.Text = "33.33";
             this.c30PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.c30PipTextBox.Visible = false;
@@ -354,7 +354,7 @@
             this.c40PipTextBox.Location = new System.Drawing.Point(715, 377);
             this.c40PipTextBox.Name = "c40PipTextBox";
             this.c40PipTextBox.Size = new System.Drawing.Size(100, 31);
-            this.c40PipTextBox.TabIndex = 23;
+            this.c40PipTextBox.TabIndex = 14;
             this.c40PipTextBox.Text = "25.00";
             this.c40PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.c40PipTextBox.Visible = false;
@@ -396,7 +396,7 @@
             this.c50PipTextBox.Location = new System.Drawing.Point(821, 377);
             this.c50PipTextBox.Name = "c50PipTextBox";
             this.c50PipTextBox.Size = new System.Drawing.Size(100, 31);
-            this.c50PipTextBox.TabIndex = 27;
+            this.c50PipTextBox.TabIndex = 15;
             this.c50PipTextBox.Text = "20.00";
             this.c50PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -608,7 +608,7 @@
             this.c100PipTextBox.Location = new System.Drawing.Point(1351, 377);
             this.c100PipTextBox.Name = "c100PipTextBox";
             this.c100PipTextBox.Size = new System.Drawing.Size(100, 31);
-            this.c100PipTextBox.TabIndex = 47;
+            this.c100PipTextBox.TabIndex = 16;
             this.c100PipTextBox.Text = "10.00";
             this.c100PipTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -677,7 +677,7 @@
             this.selectLungModelTypeGroupBox.Location = new System.Drawing.Point(556, 29);
             this.selectLungModelTypeGroupBox.Name = "selectLungModelTypeGroupBox";
             this.selectLungModelTypeGroupBox.Size = new System.Drawing.Size(793, 84);
-            this.selectLungModelTypeGroupBox.TabIndex = 54;
+            this.selectLungModelTypeGroupBox.TabIndex = 3;
             this.selectLungModelTypeGroupBox.TabStop = false;
             this.selectLungModelTypeGroupBox.Text = "Select lung model / type";
             // 
@@ -749,7 +749,7 @@
             this.serialNumberTextBox.Location = new System.Drawing.Point(868, 128);
             this.serialNumberTextBox.Name = "serialNumberTextBox";
             this.serialNumberTextBox.Size = new System.Drawing.Size(86, 31);
-            this.serialNumberTextBox.TabIndex = 55;
+            this.serialNumberTextBox.TabIndex = 4;
             this.serialNumberTextBox.Text = "0000";
             this.serialNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.serialNumberTextBox.TextChanged += new System.EventHandler(this.serialNumberTextBox_TextChanged);
@@ -783,7 +783,7 @@
             this.buildPVLFileButton.Location = new System.Drawing.Point(1140, 621);
             this.buildPVLFileButton.Name = "buildPVLFileButton";
             this.buildPVLFileButton.Size = new System.Drawing.Size(311, 68);
-            this.buildPVLFileButton.TabIndex = 58;
+            this.buildPVLFileButton.TabIndex = 24;
             this.buildPVLFileButton.Text = "Build SL00000.pvl";
             this.buildPVLFileButton.UseVisualStyleBackColor = false;
             this.buildPVLFileButton.Click += new System.EventHandler(this.buildPVLFileButton_Click);
@@ -813,7 +813,7 @@
             this.selectOutputFolderButton.Location = new System.Drawing.Point(810, 621);
             this.selectOutputFolderButton.Name = "selectOutputFolderButton";
             this.selectOutputFolderButton.Size = new System.Drawing.Size(311, 68);
-            this.selectOutputFolderButton.TabIndex = 60;
+            this.selectOutputFolderButton.TabIndex = 23;
             this.selectOutputFolderButton.Text = "Select Output Folder";
             this.selectOutputFolderButton.UseVisualStyleBackColor = false;
             this.selectOutputFolderButton.Click += new System.EventHandler(this.selectOutputFolderButton_Click);
@@ -857,7 +857,7 @@
             this.c10Pip500TextBox.Location = new System.Drawing.Point(397, 290);
             this.c10Pip500TextBox.Name = "c10Pip500TextBox";
             this.c10Pip500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c10Pip500TextBox.TabIndex = 64;
+            this.c10Pip500TextBox.TabIndex = 9;
             this.c10Pip500TextBox.Text = "50.00";
             this.c10Pip500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -878,7 +878,7 @@
             this.c10Pip100TextBox.Location = new System.Drawing.Point(397, 255);
             this.c10Pip100TextBox.Name = "c10Pip100TextBox";
             this.c10Pip100TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c10Pip100TextBox.TabIndex = 66;
+            this.c10Pip100TextBox.TabIndex = 5;
             this.c10Pip100TextBox.Text = "0.00";
             this.c10Pip100TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -888,7 +888,7 @@
             this.c20Pip1500TextBox.Location = new System.Drawing.Point(503, 462);
             this.c20Pip1500TextBox.Name = "c20Pip1500TextBox";
             this.c20Pip1500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c20Pip1500TextBox.TabIndex = 68;
+            this.c20Pip1500TextBox.TabIndex = 17;
             this.c20Pip1500TextBox.Text = "75.00";
             this.c20Pip1500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -898,7 +898,7 @@
             this.c20Pip2000TextBox.Location = new System.Drawing.Point(503, 497);
             this.c20Pip2000TextBox.Name = "c20Pip2000TextBox";
             this.c20Pip2000TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c20Pip2000TextBox.TabIndex = 67;
+            this.c20Pip2000TextBox.TabIndex = 20;
             this.c20Pip2000TextBox.Text = "100.00";
             this.c20Pip2000TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -908,7 +908,7 @@
             this.c20Pip100TextBox.Location = new System.Drawing.Point(503, 255);
             this.c20Pip100TextBox.Name = "c20Pip100TextBox";
             this.c20Pip100TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c20Pip100TextBox.TabIndex = 70;
+            this.c20Pip100TextBox.TabIndex = 6;
             this.c20Pip100TextBox.Text = "5.00";
             this.c20Pip100TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -918,7 +918,7 @@
             this.c20Pip500TextBox.Location = new System.Drawing.Point(503, 290);
             this.c20Pip500TextBox.Name = "c20Pip500TextBox";
             this.c20Pip500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c20Pip500TextBox.TabIndex = 69;
+            this.c20Pip500TextBox.TabIndex = 10;
             this.c20Pip500TextBox.Text = "25.00";
             this.c20Pip500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -928,7 +928,7 @@
             this.c50Pip100TextBox.Location = new System.Drawing.Point(821, 255);
             this.c50Pip100TextBox.Name = "c50Pip100TextBox";
             this.c50Pip100TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c50Pip100TextBox.TabIndex = 74;
+            this.c50Pip100TextBox.TabIndex = 7;
             this.c50Pip100TextBox.Text = "5.00";
             this.c50Pip100TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -938,7 +938,7 @@
             this.c50Pip500TextBox.Location = new System.Drawing.Point(821, 290);
             this.c50Pip500TextBox.Name = "c50Pip500TextBox";
             this.c50Pip500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c50Pip500TextBox.TabIndex = 73;
+            this.c50Pip500TextBox.TabIndex = 11;
             this.c50Pip500TextBox.Text = "25.00";
             this.c50Pip500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -948,7 +948,7 @@
             this.c50Pip1500TextBox.Location = new System.Drawing.Point(821, 462);
             this.c50Pip1500TextBox.Name = "c50Pip1500TextBox";
             this.c50Pip1500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c50Pip1500TextBox.TabIndex = 72;
+            this.c50Pip1500TextBox.TabIndex = 18;
             this.c50Pip1500TextBox.Text = "75.00";
             this.c50Pip1500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -958,7 +958,7 @@
             this.c50Pip2000TextBox.Location = new System.Drawing.Point(821, 497);
             this.c50Pip2000TextBox.Name = "c50Pip2000TextBox";
             this.c50Pip2000TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c50Pip2000TextBox.TabIndex = 71;
+            this.c50Pip2000TextBox.TabIndex = 21;
             this.c50Pip2000TextBox.Text = "100.00";
             this.c50Pip2000TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -968,7 +968,7 @@
             this.c100Pip100TextBox.Location = new System.Drawing.Point(1351, 255);
             this.c100Pip100TextBox.Name = "c100Pip100TextBox";
             this.c100Pip100TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c100Pip100TextBox.TabIndex = 78;
+            this.c100Pip100TextBox.TabIndex = 8;
             this.c100Pip100TextBox.Text = "5.00";
             this.c100Pip100TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -978,7 +978,7 @@
             this.c100Pip500TextBox.Location = new System.Drawing.Point(1351, 290);
             this.c100Pip500TextBox.Name = "c100Pip500TextBox";
             this.c100Pip500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c100Pip500TextBox.TabIndex = 77;
+            this.c100Pip500TextBox.TabIndex = 12;
             this.c100Pip500TextBox.Text = "25.00";
             this.c100Pip500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -988,7 +988,7 @@
             this.c100Pip1500TextBox.Location = new System.Drawing.Point(1351, 462);
             this.c100Pip1500TextBox.Name = "c100Pip1500TextBox";
             this.c100Pip1500TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c100Pip1500TextBox.TabIndex = 76;
+            this.c100Pip1500TextBox.TabIndex = 19;
             this.c100Pip1500TextBox.Text = "75.00";
             this.c100Pip1500TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -998,7 +998,7 @@
             this.c100Pip2000TextBox.Location = new System.Drawing.Point(1351, 497);
             this.c100Pip2000TextBox.Name = "c100Pip2000TextBox";
             this.c100Pip2000TextBox.Size = new System.Drawing.Size(100, 31);
-            this.c100Pip2000TextBox.TabIndex = 75;
+            this.c100Pip2000TextBox.TabIndex = 22;
             this.c100Pip2000TextBox.Text = "100.00";
             this.c100Pip2000TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 

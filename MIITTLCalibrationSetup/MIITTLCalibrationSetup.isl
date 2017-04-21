@@ -1180,7 +1180,6 @@
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>michig_1_michigan_instruments__inc.</td><td>ProgramMenuFolder</td><td>MICHIG~1|Michigan Instruments, Inc.</td><td/><td>1</td><td/></row>
-		<row><td>miittl_1_miittlcalibrationsetup</td><td>michig_1_michigan_instruments__inc.</td><td>MIITTL~1|MIITTLCalibrationSetup</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -3440,7 +3439,7 @@
 		<row><td>IDS_PROGMSG_XML_UPDATE_FILE</td><td>1033</td><td>Updating XML file %s...</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>1101362064</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>LAUNCH~1.EXE|Launch MIITTLCalibration.exe</td><td>0</td><td/><td>1101347952</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>MIITTL~1|MIITTLCalibration</td><td>0</td><td/><td>-1574612685</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1101362064</td></row>
@@ -3730,7 +3729,7 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>1101362064</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>1101362064</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.MichiganInstruments,Inc..com</td><td>0</td><td/><td>1504038608</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>www.michiganinstruments.com</td><td>0</td><td/><td>-1574619950</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Michigan Instruments, Inc.</td><td>0</td><td/><td>1504038608</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>LAUNCH~1.EXE|Launch MIITTLCalibration.exe</td><td>0</td><td/><td>1101333712</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1101362064</td></row>
@@ -3981,7 +3980,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{F64A61AA-212E-481B-9193-34813563A426}</td></row>
 		<row><td>ISUSSignature</td><td>{4BECB85E-CE09-4748-AE7E-1C69468096A5}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewAppFiles,viewISToday,viewProject,viewUpgradePaths,viewUpdateService,viewRegistry,viewUI,viewTextMessages,viewCustomActions,viewSystemSearch,viewRelease</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewShortcuts,viewAppFiles,viewISToday,viewProject,viewUpgradePaths,viewUpdateService,viewRegistry,viewUI,viewTextMessages,viewCustomActions,viewSystemSearch,viewRelease,viewObjects,viewLearnMore</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4433,7 +4432,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="i2">InstallMode</col>
 		<row><td>FileKey1</td><td>MIITTLCalibration.exe</td><td/><td>michig_1_michigan_instruments__inc.</td><td>2</td></row>
 		<row><td>FileKey2</td><td>MIITTLCalibration.exe</td><td/><td>miittl_1_miittlcalibrationsetup</td><td>2</td></row>
-		<row><td>MIITTLCalibration.exe</td><td>MIITTLCalibration.exe</td><td/><td>miittl_1_miittlcalibrationsetup</td><td>2</td></row>
+		<row><td>MIITTLCalibration.exe</td><td>MIITTLCalibration.exe</td><td/><td>michig_1_michigan_instruments__inc.</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4519,7 +4518,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>MIITTLCalibration.exe</td><td>miittl_1_miittlcalibrationsetup</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>MIITTLCalibration.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>MIITTLCalibration._BFC4CC795284409EBDB2A44EF1909FF6.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>MIITTLCalibration.exe</td><td>michig_1_michigan_instruments__inc.</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>MIITTLCalibration.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>MIITTLCalibration._BFC4CC795284409EBDB2A44EF1909FF6.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>MIITTLCalibration.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>MIITTLCalibration.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>MIITTLCalibration._31030C464F7F4D3FB58A8A52F5BA092F.exe</td><td>0</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
